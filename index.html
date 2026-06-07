@@ -2,16 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>منصة التحول الفسيولوجي المتقدم | حلويات بوسي</title>
     
-    <!-- PWA Smart Embedded Manifest (With premium gold/pink theme color) -->
-    <link rel="manifest" href='data:application/json,{"name":"منصة التحول الفسيولوجي","short_name":"التحول الفسيولوجي","start_url":".","display":"standalone","background_color":"#FFFFFF","theme_color":"#FF91A4","orientation":"portrait","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/3068/3068323.png","sizes":"512x512","type":"image/png"}]}'>
+    <!-- PWA Smart Embedded Manifest (With premium brand icon and pink theme) -->
+    <link rel="manifest" href='data:application/json,{"name":"منصة التحول الفسيولوجي","short_name":"التحول الفسيولوجي","start_url":".","display":"standalone","background_color":"#FFFFFF","theme_color":"#FF91A4","orientation":"portrait","icons":[{"src":"https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png","sizes":"512x512","type":"image/png"}]}'>
     <meta name="theme-color" content="#FF91A4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="التحول الفسيولوجي">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3068/3068323.png">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png">
 
     <!-- Tailwind CSS with strict custom brand tokens -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +55,7 @@
             background-color: var(--brand-white);
             color: var(--brand-black);
             -webkit-tap-highlight-color: transparent;
+            word-break: keep-all;
         }
         
         .pink-border { border-color: var(--brand-pink); }
@@ -64,6 +65,7 @@
         
         h1, h2, h3, h4 {
             font-weight: 700 !important;
+            line-height: 1.4 !important;
         }
         
         circle {
@@ -141,13 +143,12 @@
 </head>
 <body class="min-h-screen flex flex-col bg-white pb-28 md:pb-8">
 
-    <!-- Premium Header -->
+    <!-- Premium Header with Brand Logo -->
     <header class="border-b pink-border-subtle bg-white sticky top-0 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-10 h-10 rounded-full bg-brandPink flex items-center justify-center text-white pink-shadow">
-                    <i data-lucide="sparkles" class="w-5 h-5 text-white animate-pulse"></i>
-                </div>
+                <!-- Brand Official Logo Embedded -->
+                <img src="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png" alt="حلويات بوسي" class="w-11 h-11 rounded-full object-cover border-2 border-brandPink pink-shadow shrink-0">
                 <div>
                     <h1 class="text-xs md:text-sm tracking-tight text-brandBlack leading-tight font-bold">منصة التحول الفسيولوجي</h1>
                     <p class="text-[9px] text-brandBlack/80 font-bold">المستشار الفسيولوجي المطور لـ حلويات بوسي</p>
@@ -202,7 +203,7 @@
                         <span class="text-[11px] font-bold text-brandBlack">المفكرة والمذكرات اليومية</span>
                         <input type="checkbox" id="toggle-journal-widget" checked onchange="toggleWidget('widget-journal')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
                     </label>
-                    <!-- Phone Notifications Toggle Added Elegantly -->
+                    <!-- Phone Notifications Toggle -->
                     <label class="flex items-center justify-between p-3 rounded-xl border-2 border-brandPink/35 bg-brandPink/5 cursor-pointer hover:border-brandPink transition">
                         <span class="text-[11px] font-bold text-brandBlack flex items-center gap-1.5">
                             <i data-lucide="bell" class="w-3.5 h-3.5 text-brandPink"></i>
@@ -213,13 +214,22 @@
                 </div>
             </div>
 
+            <!-- In-App Notification Notification Panel for devices that don't support system notifications -->
+            <div id="inapp-alert-banner" class="hidden p-4 rounded-xl border-2 border-brandPink bg-brandPink/5 text-right flex items-start gap-3 pink-shadow animate-pulse">
+                <i data-lucide="info" class="w-5 h-5 text-brandPink shrink-0 mt-0.5"></i>
+                <div class="space-y-1">
+                    <span class="text-xs font-bold text-brandPink block" id="inapp-alert-title">تذكير فسيولوجي مدمج</span>
+                    <p class="text-[11px] text-brandBlack font-semibold leading-relaxed" id="inapp-alert-body">تنبيه تلقائي من المنصة للحفاظ على مفاصلكِ وعظامكِ بانتظام.</p>
+                </div>
+            </div>
+
             <!-- Profile Summary & Dynamic Metrics -->
             <div class="bg-gradient-to-r from-brandPink/5 to-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div class="space-y-1">
                         <span class="inline-block bg-brandPink/10 text-brandPink text-[9px] font-bold px-2.5 py-1 rounded-full mb-1">الملف الشخصي الفسيولوجي</span>
                         <h2 class="text-sm md:text-md text-brandBlack font-bold" id="greeting-text">أهلاً بكِ في منصة تتبع بروتوكول حلويات بوسي اليومية</h2>
-                        <p class="text-[11px] text-brandBlack/80 font-semibold leading-relaxed">نتابع معاً رحلة الـ 40 يوماً المباركة لحماية الركبتين والعظام واستعادة خفة حركتك المفقودة بذكاء وعلم فسيولوجي دقيق.</p>
+                        <p class="text-[11px] text-brandBlack/80 font-semibold leading-relaxed">نتابع معاً رحلة الـ ٤٠ يوماً المباركة لحماية الركبتين والعظام واستعادة خفة حركتك المفقودة بذكاء وعلم فسيولوجي دقيق.</p>
                     </div>
                     
                     <div class="grid grid-cols-3 gap-3 w-full md:w-auto">
@@ -382,7 +392,7 @@
                         + ٢٥٠ مل
                     </button>
                     <button onclick="addWaterMl(500)" class="flex-1 py-2.5 rounded-lg border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandBlack bg-white transition flex items-center justify-center gap-1 focus:outline-none">
-                        + ٥٠٠ مل
+                        + ٥٠0 مل
                     </button>
                     <button onclick="addWaterMl(1500)" class="flex-1 py-2.5 rounded-lg border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandBlack bg-white transition flex items-center justify-center gap-1 focus:outline-none">
                         + ١.٥ لتر
@@ -418,7 +428,7 @@
 
                     <div class="p-4 rounded-xl border pink-border-subtle bg-white pink-shadow-sm space-y-3">
                         <div class="flex justify-between text-xs">
-                            <span class="text-brandBlack font-bold">مؤصل كتلة دهون الجسم:</span>
+                            <span class="text-brandBlack font-bold">مؤشر كتلة جسمكِ الحالي:</span>
                             <span class="font-bold text-brandPink" id="fat-index-text">٤٤.٧٥ (سمنة مفرطة شديدة)</span>
                         </div>
                         <div class="relative w-full h-4 bg-brandPink/10 rounded-full overflow-hidden flex">
@@ -507,20 +517,20 @@
                 </div>
 
                 <!-- Animated Fasting Ring SVG -->
-                <div class="relative w-64 h-64 flex items-center justify-center">
-                    <svg class="w-full h-full -rotate-90">
+                <div class="relative w-64 h-64 flex items-center justify-center mx-auto">
+                    <svg class="w-full h-full -rotate-90" viewBox="0 0 256 256">
                         <circle cx="128" cy="128" r="110" stroke="#FFF0F2" stroke-width="10" fill="transparent"></circle>
-                        <circle id="fasting-progress-ring" cx="128" cy="128" r="110" stroke="#FF91A4" stroke-width="10" fill="transparent" stroke-dasharray="691" stroke-dashoffset="691" class="transition-all duration-1000"></circle>
+                        <circle id="fasting-progress-ring" cx="128" cy="128" r="110" stroke="#FF91A4" stroke-width="10" fill="transparent" stroke-dasharray="691.15" stroke-dashoffset="691.15" class="transition-all duration-1000"></circle>
                     </svg>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
                         <span class="text-[10px] text-brandBlack/80 font-bold uppercase tracking-wider">سجل الصيام الفعلي</span>
-                        <span class="text-4xl font-bold text-brandBlack mt-1" id="ring-timer">١٩٢:١٤:٠٢</span>
-                        <span class="text-[10px] font-bold text-brandGold bg-brandGold/10 border border-brandGold/20 px-2.5 py-1 rounded-full mt-2" id="ring-stage">تجديد الخلايا المناعية النشط</span>
+                        <span class="text-3xl md:text-4xl font-bold text-brandBlack mt-1" id="ring-timer">١٩٢:١٤:٠٢</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-brandGold bg-brandGold/10 border border-brandGold/20 px-2.5 py-1 rounded-full mt-2 text-center" id="ring-stage">تجديد الخلايا المناعية النشط</span>
                     </div>
                 </div>
 
                 <!-- Fasting Simulator Slider -->
-                <div class="w-full max-w-sm p-4 bg-white rounded-xl space-y-2 border border-brandPink pink-shadow-sm">
+                <div class="w-full max-w-sm p-4 bg-white rounded-xl space-y-2 border border-brandPink pink-shadow-sm mx-auto">
                     <label class="flex justify-between text-xs font-bold text-brandBlack">
                         <span>محاكي ساعات الصيام التفاعلي:</span>
                         <span class="text-brandPink font-bold" id="simulated-hours-text">١٩٢ ساعة صيام</span>
@@ -530,7 +540,7 @@
                 </div>
 
                 <!-- Custom Start New Fasting Session -->
-                <div id="new-fasting-form" class="hidden w-full max-w-md p-5 rounded-2xl border-2 border-brandPink bg-white pink-shadow space-y-4 text-right">
+                <div id="new-fasting-form" class="hidden w-full max-w-md p-5 rounded-2xl border-2 border-brandPink bg-white pink-shadow space-y-4 text-right mx-auto">
                     <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5 border-b pink-border-subtle pb-2">
                         <i data-lucide="play-circle" class="w-4 h-4 text-brandPink"></i>
                         البدء في بروتوكول صيام كيتوني جديد
@@ -560,7 +570,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 w-full max-w-md pt-2" id="fasting-dates-box">
+                <div class="grid grid-cols-2 gap-4 w-full max-w-md pt-2 mx-auto" id="fasting-dates-box">
                     <div class="p-3 rounded-xl bg-white border pink-border-subtle text-right pink-shadow-sm">
                         <span class="text-[10px] text-brandBlack/80 block font-bold">تاريخ وموعد البدء</span>
                         <span class="text-xs font-bold text-brandBlack" id="start-date-disp">٢٩ مايو، ٠٤:٢٦ م</span>
@@ -571,7 +581,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-3 w-full max-w-md" id="fasting-controls-box">
+                <div class="flex flex-col gap-3 w-full max-w-md mx-auto" id="fasting-controls-box">
                     <!-- Row 1: Core Operations -->
                     <div class="flex gap-3 w-full">
                         <button onclick="toggleFastingTimer()" id="btn-timer-control" class="flex-1 py-3 rounded-xl bg-brandPink/5 hover:bg-brandPink/10 text-brandPink font-bold text-xs transition border pink-border-subtle focus:outline-none">
@@ -602,21 +612,17 @@
                 <div class="space-y-4">
                     <!-- Stage 1 -->
                     <div id="stage-card-1" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
-                        <div id="stage-icon-1" class="p-2 rounded-full mt-1">
-                            <!-- Injected dynamically -->
-                        </div>
+                        <div id="stage-icon-1" class="p-2 rounded-full mt-1"></div>
                         <div>
                             <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-1">
                                 نفاذ السكر والاعتياد الكيتوني (ساعة ١٢ - ١٨)
                             </h4>
-                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">تفرغ جميع مخازن النشويات في الكبد، ويبدأ دماغكِ ومفاصلكِ في استخدام الكيتونات النظيفة المشتقة من كتلة دهونكِ كوقود مريح وخالٍ من سكر الدم.</p>
+                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">تفرغ جميع مخاصن النشويات في الكبد، ويبدأ دماغكِ ومفاصلكِ في استخدام الكيتونات النظيفة كوقود مريح وخالٍ من سكر الدم.</p>
                         </div>
                     </div>
                     <!-- Stage 2 -->
                     <div id="stage-card-2" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
-                        <div id="stage-icon-2" class="p-2 rounded-full mt-1">
-                            <!-- Injected dynamically -->
-                        </div>
+                        <div id="stage-icon-2" class="p-2 rounded-full mt-1"></div>
                         <div>
                             <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-2">
                                 انطلاق الالتهام الذاتي الفعال (Autophagy) (ساعة ٢٤ - ٤٨)
@@ -626,9 +632,7 @@
                     </div>
                     <!-- Stage 3 -->
                     <div id="stage-card-3" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
-                        <div id="stage-icon-3" class="p-2 rounded-full mt-1">
-                            <!-- Injected dynamically -->
-                        </div>
+                        <div id="stage-icon-3" class="p-2 rounded-full mt-1"></div>
                         <div>
                             <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-3">
                                 تجديد خلايا الدم البيضاء وبناء المفاصل (ساعة ٧٢ - ١٢٠)
@@ -638,9 +642,7 @@
                     </div>
                     <!-- Stage 4 -->
                     <div id="stage-card-4" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
-                        <div id="stage-icon-4" class="p-2 rounded-full mt-1">
-                            <!-- Injected dynamically -->
-                        </div>
+                        <div id="stage-icon-4" class="p-2 rounded-full mt-1"></div>
                         <div>
                             <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-4">
                                 الاستشفاء الهيكلي والصفاء الذهني الكامل (ساعة ١٨٠ - ٢٤٠)
@@ -667,9 +669,7 @@
                 </div>
                 
                 <!-- Horizontal Day Slider -->
-                <div class="flex gap-2 overflow-x-auto pb-2 pt-2 no-scrollbar" id="days-slider">
-                    <!-- Dynamic Generation of Main Milestones -->
-                </div>
+                <div class="flex gap-2 overflow-x-auto pb-2 pt-2 no-scrollbar" id="days-slider"></div>
             </div>
 
             <!-- Dynamic Day Details Display Area -->
@@ -683,9 +683,7 @@
                 </div>
 
                 <!-- Hour-by-Hour Interactive Breakdown -->
-                <div class="space-y-4" id="detail-day-timeline">
-                    <!-- Dynamic steps injected here -->
-                </div>
+                <div class="space-y-4" id="detail-day-timeline"></div>
 
                 <!-- Joint & Medical Specialized Warning -->
                 <div class="p-4 rounded-xl bg-white border pink-border-subtle flex items-start gap-3 mt-4 pink-shadow-sm">
@@ -731,14 +729,25 @@
                     </div>
                     <!-- Real-time Filter/Search Input -->
                     <div class="relative max-w-xs w-full">
-                        <input type="text" id="article-search" oninput="filterArticles(this.value)" class="w-full pl-3 pr-9 py-2 rounded-xl border border-brandPink/30 focus:border-brandPink focus:outline-none text-xs font-bold text-brandBlack placeholder-brandBlack/45" placeholder="ابحثي في الموسوعة...">
-                        <i data-lucide="search" class="w-4 h-4 text-brandBlack/55 absolute right-3 top-2.5"></i>
+                        <input type="text" id="article-search" oninput="filterArticles(this.value)" class="w-full pl-3 pr-9 py-2.5 rounded-xl border border-brandPink/30 focus:border-brandPink focus:outline-none text-xs font-bold text-brandBlack placeholder-brandBlack/45" placeholder="ابحثي في الموسوعة (كالسيوم، مغنيسيوم، مالتي فيتامين)...">
+                        <i data-lucide="search" class="w-4 h-4 text-brandBlack/55 absolute left-3 top-3"></i>
                     </div>
+                </div>
+
+                <!-- Empty State Block if Search Has No Results -->
+                <div id="search-empty-state" class="hidden p-8 rounded-2xl border-2 border-dashed border-brandPink/30 text-center space-y-3 bg-brandPink/5">
+                    <div class="w-12 h-12 bg-brandPink/10 text-brandPink flex items-center justify-center rounded-full mx-auto">
+                        <i data-lucide="search-code" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-bold text-brandBlack block">لم نجد أي نتائج لـ "<span id="search-query-highlight" class="text-brandPink"></span>"</span>
+                    <p class="text-[11px] text-brandBlack/70 leading-relaxed max-w-sm mx-auto font-bold">
+                        جربي كلمات أخرى مثل <span class="underline text-brandPink cursor-pointer" onclick="fillSearchAndTrigger('مفاصل')">مفاصل</span> أو <span class="underline text-brandPink cursor-pointer" onclick="fillSearchAndTrigger('سترونج')">سترونج كالسيوم</span> أو <span class="underline text-brandPink cursor-pointer" onclick="fillSearchAndTrigger('مغنيسيوم')">مغنيسيوم</span> أو <span class="underline text-brandPink cursor-pointer" onclick="fillSearchAndTrigger('يوريك')">يوريك أسيد</span>.
+                    </p>
                 </div>
 
                 <div class="space-y-6" id="articles-container">
                     <!-- Article 1 -->
-                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="كلى غدد بوليك حمض يوريك عظام مفاصل">
+                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="كلى غدد بوليك حمض يوريك عظام مفاصل ألم">
                         <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">كيمياء الكلى والغدد الصماء</span>
                         <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
                             <i data-lucide="bone" class="w-4 h-4 text-brandPink"></i>
@@ -757,10 +766,10 @@
                         <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">بيولوجيا الامتصاص الهضمي</span>
                         <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
                             <i data-lucide="shield-check" class="w-4 h-4 text-brandPink"></i>
-                            لماذا سترات الكالسيوم بالتحديد؟ ولماذا تفشل الكربونات أثناء الصيام?
+                            لماذا سترات الكالسيوم بالتحديد؟ ولماذا تفشل الكربونات أثناء الصيام؟
                         </h3>
                         <p class="text-xs text-brandBlack/90 leading-relaxed font-semibold">
-                            أثنا الصيام الطويل، تفرغ المعدة تماماً من الطعام وتدخل الغدد المعدية في سكون فسيولوجي تام، مما يؤدي لغياب حمض الهيدروكلوريك (Achlorhydria) وارتفاع الرقم الهيدروجيني (pH) داخل المعدة.
+                            أثناء الصيام الطويل، تفرغ المعدة تماماً من الطعام وتدخل الغدد المعدية في سكون فسيولوجي تام، مما يؤدي لغياب حمض الهيدروكلوريك (Achlorhydria) وارتفاع الرقم الهيدروجيني (pH) داخل المعدة.
                             <br><br>
                             صيغة الكالسيوم كربونات الشائعة تتطلب وسطاً حمضياً شديداً (pH أقل من ٢) لتفكيك رابطتها وإذابتها لتمكين الامتصاص. وبالتالي، تناول كربونات الكالسيوم أثناء الصيام يمر في الأمعاء كالحجر دون أي امتصاص وبدون أي فائدة لمفاصلكِ. 
                             <b class="text-brandPink block mt-2">في المقابل، تتميز صيغة سترات الكالسيوم (Calcium Citrate) برابطة مخلبية سهلة التفكك، تمتص بكفاءة فائقة وتامة حتى في غياب أحماض المعدة، مما يحمي مصفوفة عظامكِ من التآكل لتعويض المعادن.</b>
@@ -781,6 +790,21 @@
                             <b class="text-brandPink block mt-2">الجليسين يعمل كناقل عصبي مهدئ للجهاز العصبي المركزي (Inhibitory Neurotransmitter)، مما يهدئ الإشارات العصبية العضلية الذاهبة لعضلات الساقين ويمنع تماماً التشنجات والتقلصات الليلية المزعجة.</b>
                         </p>
                     </div>
+
+                    <!-- Article 4 -->
+                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="مالتي فيتامين مكملات فيتامينات معادن حبة">
+                        <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">فلسفة التغذية الفردية</span>
+                        <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                            <i data-lucide="info" class="w-4 h-4 text-brandPink"></i>
+                            لماذا نفضل المعادن الفردية المتخصصة على الـ (مالتي فيتامين) الشامل؟
+                        </h3>
+                        <p class="text-xs text-brandBlack/90 leading-relaxed font-semibold">
+                            في بروتوكولات المفاصل الفولاذية لوزن الـ ١٢٠ كجم، حبة الـ "مالتي فيتامين" (Multi-vitamin) الشاملة غالباً ما تحتوي على صيغ كيميائية رخيصة صعبة الامتصاص (مثل كربونات الكالسيوم أو أكسيد المغنيسيوم) لضغط كافة العناصر في حبة واحدة. بالإضافة إلى ذلك، وجود بعض المعادن معاً في نفس الوقت يسبب تنافساً كيميائياً شرساً على بوابات الامتصاص في خلايا الأمعاء.
+                            <br><br>
+                            على سبيل المثال، الكالسيوم والحديد يتنافسان بقوة، مما يؤدي إلى إبطال مفعول امتصاص كليهما إذا تناولتيهما معاً.
+                            <b class="text-brandPink block mt-2">الحل الفسيولوجي المطور مع حلويات بوسي: نقوم بفصل المعادن الفردية عالية النقاوة وتقديمها في أوقات متفرقة ومدروسة (مثل سترات الكالسيوم نهاراً لتجنب غياب حمض المعدة، والمغنيسيوم جليسينات ليلاً لتهدئة عضلات الساقين والسمانة بكفاءة مذهلة بنسبة ١٠٠%).</b>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -791,9 +815,8 @@
             
             <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-6">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-full bg-brandPink flex items-center justify-center text-white text-lg font-bold pink-shadow">
-                        ح
-                    </div>
+                    <!-- Brand Official Logo Embedded inside Profile Panel -->
+                    <img src="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png" alt="حلويات بوسي" class="w-14 h-14 rounded-full object-cover border-2 border-brandPink pink-shadow shrink-0">
                     <div>
                         <h2 class="text-xs md:text-sm text-brandBlack font-bold">بطلة منصة حلويات بوسي الفسيولوجية</h2>
                         <p class="text-[11px] text-brandBlack/70 font-bold">عضوية نشطة في بروتوكول التحول الفسيولوجي المتقدم</p>
@@ -841,7 +864,7 @@
 
                         <!-- Gold Target Line -->
                         <line x1="10" y1="125" x2="490" y2="125" stroke="#D4AF37" stroke-width="2" />
-                        <text x="440" y="120" fill="#D4AF37" class="text-[8px] font-bold">مستهدف الـ ٩٠ كجم</text>
+                        <text x="440" y="118" fill="#D4AF37" class="text-[8px] font-bold">مستهدف الـ ٩٠ كجم</text>
 
                         <!-- Dynamically drawn path from JavaScript -->
                         <path id="chart-slope-path" d="" fill="none" stroke="#FF91A4" stroke-width="3.5" stroke-linecap="round"/>
@@ -976,9 +999,8 @@
     <!-- Modal 1: كسر الصيام الآمن (Refeeding Launch) -->
     <div id="modal-still-fasting" class="hidden fixed inset-0 bg-[#FF91A4]/10 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center space-y-6 border-2 border-brandPink pink-shadow animate-fade-in">
-            <div class="w-16 h-16 rounded-full bg-brandPink/5 text-brandPink flex items-center justify-center mx-auto border pink-border-subtle">
-                <i data-lucide="bell" class="w-8 h-8 text-brandPink"></i>
-            </div>
+            <!-- Brand Logo Embedded inside Dialog Modals -->
+            <img src="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png" alt="حلويات بوسي" class="w-16 h-16 rounded-full object-cover border-2 border-brandPink pink-shadow mx-auto animate-pulse">
             <div class="space-y-2">
                 <h3 class="text-xs md:text-sm font-bold text-brandBlack">هل ترغبين في إنهاء صيامكِ الحالي؟</h3>
                 <p class="text-xs text-brandBlack/80 font-bold leading-relaxed">
@@ -999,9 +1021,7 @@
     <!-- Celebration Modal -->
     <div id="modal-celebration" class="hidden fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center space-y-6 border-4 border-brandGold pink-shadow">
-            <div class="w-20 h-20 rounded-full bg-brandGold text-white flex items-center justify-center mx-auto animate-bounce shadow-lg">
-                <i data-lucide="crown" class="w-10 h-10 text-white"></i>
-            </div>
+            <img src="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png" alt="حلويات بوسي" class="w-20 h-20 rounded-full object-cover border-2 border-brandGold pink-shadow mx-auto animate-bounce">
             <div class="space-y-2">
                 <h3 class="text-md md:text-lg font-bold text-brandBlack text-brandGold">إنجاز رائع وبطولي!</h3>
                 <p class="text-xs text-brandBlack/85 leading-relaxed font-bold" id="celebration-badge-text">
@@ -1052,9 +1072,7 @@
     <!-- Modal 3: تأكيد تصفير عداد الصيام -->
     <div id="modal-reset-confirm" class="hidden fixed inset-0 bg-[#111111]/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center space-y-6 border-2 border-brandPink pink-shadow">
-            <div class="w-16 h-16 rounded-full bg-brandPink/5 text-brandPink flex items-center justify-center mx-auto border pink-border-subtle">
-                <i data-lucide="rotate-ccw" class="w-8 h-8 text-brandPink"></i>
-            </div>
+            <img src="https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png" alt="حلويات بوسي" class="w-16 h-16 rounded-full object-cover border-2 border-brandPink pink-shadow mx-auto">
             <div class="space-y-2">
                 <h3 class="text-xs md:text-sm font-bold text-brandBlack">هل ترغبين في تصفير العداد؟</h3>
                 <p class="text-xs text-brandBlack/80 font-bold leading-relaxed">
@@ -1206,7 +1224,7 @@
                 hours: "الساعات ٤٩ - ٧٢",
                 advice: "اليوم تبدأ مفاصلكِ في استقبال المكملات بامتصاص مذهل. سترات الكالسيوم بالتحديد مضافة لرحلتكِ لحمايتها العميقة من الهشاشة.",
                 steps: [
-                    { time: "ساعة ٤٩ - ٥٦", desc: "هرمون النمو (HGH) يسجل ارتفاعاً بنسبة ٣٠0% لحماية كتلة العضلات والأربطة المحيطة بمفاصل ركبتكِ المجهدة." },
+                    { time: "ساعة ٤٩ - ٥٦", desc: "هرمون النمو (HGH) يسجل ارتفاعاً بنسبة ٣٠٠% لحماية كتلة العضلات والأربطة المحيطة بمفاصل ركبتكِ المجهدة." },
                     { time: "ساعة ٥٧ - ٦٤", desc: "إعادة بناء مستقبلات الخلايا للأنسولين لرفع كفاءة الأيض وتفتيت الدهون الحشوية العميقة المحيطة بالبطن والأحشاء." },
                     { time: "ساعة ٦٥ - ٧٢", desc: "تنظيف الكبد والأوعية الشريانية من الكوليسترول المؤكسد والتكلسات الجيرية القديمة، وضخ دماء محملة بالأكسجين للغضاريف." }
                 ]
@@ -1238,7 +1256,7 @@
                 steps: [
                     { time: "ساعة ٤٨١ - ٥٦٠", desc: "انكماش ملحوظ في مقاسات الحوض والخصر، مما يعيد مركز ثقل جسدكِ لموقع هندسي متزن لا يضغط على الفقرات القطنية." },
                     { time: "ساعة ٥٦١ - ٦٤٠", desc: "انخفاض مذهل في الكوليسترول الضار والشحوم الثلاثية لتأمين حماية قلبية وشريانية فائقة التطور لجسدكِ الشاب." },
-                    { date: "ساعة ٦٤١ - ٧٢٠", desc: "استقرار هرمونات الكورتيزول (التوتر) والأنسولين، مما يمنح عقلكِ ونواقل السيروتونين العصبية استرخاء وهدوء تامين." }
+                    { time: "ساعة ٦٤١ - ٧٢٠", desc: "استقرار هرمونات الكورتيزول (التوتر) والأنسولين، مما يمنح عقلكِ ونواقل السيروتونين العصبية استرخاء وهدوء تامين." }
                 ]
             },
             31: {
@@ -1275,7 +1293,7 @@
             let html = text
                 .replace(/&/g, "&amp;")
                 .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt bridge;");
+                .replace(/>/g, "&gt;");
             
             html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brandPink font-bold">$1</strong>');
             html = html.replace(/\n/g, '<br>');
@@ -1319,13 +1337,17 @@
             }
         }
 
-        // PWA Notifications Engine Controller
+        // PWA Notifications Engine Controller with custom In-App Simulator
         function togglePhoneNotifications() {
             const toggle = document.getElementById('toggle-phone-notifications');
             if (toggle.checked) {
                 if (!("Notification" in window)) {
-                    showToast("هذا الجهاز أو المتصفح لا يدعم نظام إشعارات الويب فسيولوجياً.");
-                    toggle.checked = false;
+                    triggerInAppFallbackAlert(
+                        "بروتوكول المحاكاة النشط 🔔",
+                        "متصفحك الحالي لا يدعم إشعارات النظام. قمنا بتفعيل التنبيهات الداخلية المدمجة في المنصة لتنبيهك بانتظام!"
+                    );
+                    appState.phoneNotificationsEnabled = true;
+                    saveStateToLocalStorage();
                     return;
                 }
 
@@ -1339,30 +1361,51 @@
                         );
                         showToast("تم تفعيل إشعارات الهاتف الذكية بنجاح! ❤️");
                     } else {
-                        appState.phoneNotificationsEnabled = false;
+                        triggerInAppFallbackAlert(
+                            "إشعارات داخلية مفعلة 📱",
+                            "تم رفض إذن النظام. سنعتمد على التنبيهات الفسيولوجية المدمجة في التطبيق لتذكيرك بالمكملات والمياه!"
+                        );
+                        appState.phoneNotificationsEnabled = true;
                         saveStateToLocalStorage();
-                        showToast("تم رفض الإذن. يرجى تفعيل إشعارات المتصفح للمنصة يدوياً من إعدادات الهاتف.");
-                        toggle.checked = false;
                     }
                 });
             } else {
                 appState.phoneNotificationsEnabled = false;
                 saveStateToLocalStorage();
+                document.getElementById('inapp-alert-banner').classList.add('hidden');
                 showToast("تم إيقاف إشعارات الهاتف التذكيرية.");
+            }
+        }
+
+        function triggerInAppFallbackAlert(title, body) {
+            const banner = document.getElementById('inapp-alert-banner');
+            const bTitle = document.getElementById('inapp-alert-title');
+            const bBody = document.getElementById('inapp-alert-body');
+            
+            if (banner && bTitle && bBody) {
+                bTitle.innerText = title;
+                bBody.innerText = body;
+                banner.classList.remove('hidden');
+                
+                // Auto hide in-app banner after 8 seconds
+                setTimeout(() => {
+                    banner.classList.add('hidden');
+                }, 8000);
             }
         }
 
         function sendLocalNotification(title, body) {
             if (!appState.phoneNotificationsEnabled) return;
-            if (Notification.permission === "granted") {
+            
+            // Check native permission, if not granted or available, use our premium in-app fallback alarm
+            if ("Notification" in window && Notification.permission === "granted") {
                 const options = {
                     body: body,
-                    icon: "https://cdn-icons-png.flaticon.com/512/3068/3068323.png",
+                    icon: "https://res.cloudinary.com/dyx4w0dr1/image/upload/v1780839970/1780839705442_1_hwb7pq.png",
                     vibrate: [200, 100, 200],
                     dir: "rtl"
                 };
                 
-                // If service worker registration is active, push notification through it (better background compatibility)
                 if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
                     navigator.serviceWorker.ready.then(reg => {
                         reg.showNotification(title, options);
@@ -1370,10 +1413,12 @@
                 } else {
                     new Notification(title, options);
                 }
+            } else {
+                triggerInAppFallbackAlert(title, body);
             }
         }
 
-        // Background Scheduler for Water, Supplements, and Fasting Milestones (Every 5 minutes checks)
+        // Background Scheduler for Water, Supplements, and Fasting Milestones (Every 60 seconds check)
         function initializeBackgroundReminderEngine() {
             if (backgroundReminderInterval) clearInterval(backgroundReminderInterval);
             
@@ -1439,7 +1484,6 @@
                 }
             };
 
-            // Run check immediately on load, then every 60 seconds
             checkReminders();
             backgroundReminderInterval = setInterval(checkReminders, 60000);
         }
@@ -1579,6 +1623,7 @@
                 simulateFastingHours(document.getElementById('fasting-simulator').value);
             } else if (tabId === 'profile') {
                 drawWeightChart();
+                renderBadgesOnLoad();
             }
 
             if (typeof lucide !== 'undefined') {
@@ -1709,7 +1754,7 @@
 
             const totalTargetSeconds = appState.fastTargetHours * 3600;
             const progressPercent = totalTargetSeconds > 0 ? Math.min(1.0, elapsedSeconds / totalTargetSeconds) : 0;
-            const totalDash = 691; 
+            const totalDash = 691.15; 
             const offset = totalDash - (progressPercent * totalDash);
             
             const ring = document.getElementById('fasting-progress-ring');
@@ -1746,26 +1791,28 @@
                 { id: 4, trigger: 240, card: 'stage-card-4', icon: 'stage-icon-4', title: 'stage-title-4', defaultTitle: 'الاستشفاء الهيكلي والصفاء الذهني الكامل (ساعة ١٨٠ - ٢٤٠)' }
             ];
 
-            const checkIconSvg = `<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
-            const lockIconSvg = `<svg class="w-4 h-4 text-brandPink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+            const checkIconSvg = `<svg class="w-4 h-4 text-white mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
+            const lockIconSvg = `<svg class="w-4 h-4 text-brandPink mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
 
             stages.forEach(st => {
                 const card = document.getElementById(st.card);
                 const icon = document.getElementById(st.icon);
                 const title = document.getElementById(st.title);
 
-                if (hours >= st.trigger) {
-                    card.className = "flex items-start gap-4 p-4 rounded-xl border border-brandGold bg-white transition-all duration-300 pink-shadow-sm";
-                    icon.className = "p-2 rounded-full mt-1 bg-brandGold text-white shadow-sm";
-                    icon.innerHTML = checkIconSvg;
-                    title.className = "text-xs font-bold text-brandBlack flex items-center gap-1.5";
-                    title.innerHTML = `${st.defaultTitle} <span class="badge-unlocked text-[9px] bg-brandPink/10 text-brandPink border pink-border-subtle px-2 py-0.5 rounded font-bold">مكتمل</span>`;
-                } else {
-                    card.className = "flex items-start gap-4 p-4 rounded-xl border pink-border-subtle bg-white opacity-60 transition-all duration-300";
-                    icon.className = "p-2 rounded-full mt-1 bg-brandPink/5 text-brandPink border pink-border-subtle";
-                    icon.innerHTML = lockIconSvg;
-                    title.className = "text-xs font-bold text-brandBlack/70 flex items-center gap-1.5";
-                    title.innerHTML = st.defaultTitle;
+                if (card && icon && title) {
+                    if (hours >= st.trigger) {
+                        card.className = "flex items-start gap-4 p-4 rounded-xl border border-brandGold bg-white transition-all duration-300 pink-shadow-sm";
+                        icon.className = "p-2 rounded-full mt-1 bg-brandGold text-white shadow-sm shrink-0 w-8 h-8 flex items-center justify-center";
+                        icon.innerHTML = checkIconSvg;
+                        title.className = "text-xs font-bold text-brandBlack flex items-center gap-1.5 flex-wrap";
+                        title.innerHTML = `${st.defaultTitle} <span class="badge-unlocked text-[9px] bg-brandPink/10 text-brandPink border pink-border-subtle px-2 py-0.5 rounded font-bold shrink-0">مكتمل</span>`;
+                    } else {
+                        card.className = "flex items-start gap-4 p-4 rounded-xl border pink-border-subtle bg-white opacity-60 transition-all duration-300";
+                        icon.className = "p-2 rounded-full mt-1 bg-brandPink/5 text-brandPink border pink-border-subtle shrink-0 w-8 h-8 flex items-center justify-center";
+                        icon.innerHTML = lockIconSvg;
+                        title.className = "text-xs font-bold text-brandBlack/70 flex items-center gap-1.5";
+                        title.innerHTML = st.defaultTitle;
+                    }
                 }
             });
             if (typeof lucide !== 'undefined') {
@@ -1852,6 +1899,7 @@
             document.getElementById('modal-log-weight').classList.add('hidden');
         }
 
+        // Weight Controller and Joint Relief Calculator
         function saveNewWeightLog() {
             const weightVal = parseFloat(document.getElementById('weight-log-input').value);
             const dateVal = document.getElementById('weight-date-input').value.trim();
@@ -1879,7 +1927,6 @@
             showToast("تم تحديث الوزن بنجاح وإعادة رسم منحنى الـ SVG فسيولوجياً!");
         }
 
-        // Weight Controller and Joint Relief Calculator
         function updateDynamicWeightMetrics() {
             const currentWeight = appState.currentWeight;
             document.getElementById('current-weight-display').innerText = toArabicDigits(`${currentWeight.toFixed(1)} كجم`);
@@ -2072,10 +2119,14 @@
             }
         }
 
-        // Article Finder / Filter Database
+        // Article Finder / Filter Database with empty state handling (Fixes blank results bug)
         function filterArticles(query) {
             const normalizedQuery = query.trim().toLowerCase();
             const cards = document.querySelectorAll('.article-card');
+            const emptyState = document.getElementById('search-empty-state');
+            const queryHighlight = document.getElementById('search-query-highlight');
+            
+            let visibleCount = 0;
 
             cards.forEach(card => {
                 const keywords = card.getAttribute('data-keywords').toLowerCase();
@@ -2083,10 +2134,30 @@
 
                 if (textContent.includes(normalizedQuery) || keywords.includes(normalizedQuery)) {
                     card.classList.remove('hidden');
+                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                 }
             });
+
+            if (visibleCount === 0) {
+                if (emptyState && queryHighlight) {
+                    queryHighlight.innerText = query;
+                    emptyState.classList.remove('hidden');
+                }
+            } else {
+                if (emptyState) {
+                    emptyState.classList.add('hidden');
+                }
+            }
+        }
+
+        function fillSearchAndTrigger(term) {
+            const searchInput = document.getElementById('article-search');
+            if (searchInput) {
+                searchInput.value = term;
+                filterArticles(term);
+            }
         }
 
         // Live Chat Control
@@ -2544,60 +2615,75 @@
             
             // 1. 192 Hours Badge
             const badge192Percent = Math.min(100, (currentFastingHrs / 192) * 100);
-            document.getElementById('badge-progress-192').style.width = `${badge192Percent}%`;
+            const progressBar192 = document.getElementById('badge-progress-192');
+            if (progressBar192) progressBar192.style.width = `${badge192Percent}%`;
             
             const badgeStatus192 = document.getElementById('badge-status-text-192');
             const claimBtn192 = document.getElementById('badge-claim-btn-192');
             
             if (currentFastingHrs >= 192) {
-                badgeStatus192.innerText = "جاهز للتحرير والفتح!";
-                badgeStatus192.className = "text-[9px] text-brandGold font-bold block";
-                if (!appState.claimedBadges.badge192) {
+                if (badgeStatus192) {
+                    badgeStatus192.innerText = "جاهز للتحرير والفتح!";
+                    badgeStatus192.className = "text-[9px] text-brandGold font-bold block";
+                }
+                if (!appState.claimedBadges.badge192 && claimBtn192) {
                     claimBtn192.classList.remove('hidden');
                 }
             } else {
-                badgeStatus192.innerText = toArabicDigits(`قيد التقدم والتتبع (${currentFastingHrs} / ١٩٢ ساعة)`);
-                badgeStatus192.className = "text-[9px] text-brandBlack/70 font-bold block";
-                claimBtn192.classList.add('hidden');
+                if (badgeStatus192) {
+                    badgeStatus192.innerText = toArabicDigits(`قيد التقدم والتتبع (${currentFastingHrs} / ١٩٢ ساعة)`);
+                    badgeStatus192.className = "text-[9px] text-brandBlack/70 font-bold block";
+                }
+                if (claimBtn192) claimBtn192.classList.add('hidden');
             }
 
             // 2. Steel Bones Badge
             const checkedSupps = Object.values(appState.supplements).filter(Boolean).length;
             const bonesPercent = (checkedSupps / 4) * 100;
-            document.getElementById('badge-progress-bones').style.width = `${bonesPercent}%`;
+            const progressBarBones = document.getElementById('badge-progress-bones');
+            if (progressBarBones) progressBarBones.style.width = `${bonesPercent}%`;
             
             const badgeStatusBones = document.getElementById('badge-status-text-bones');
             const claimBtnBones = document.getElementById('badge-claim-btn-bones');
             
             if (checkedSupps === 4) {
-                badgeStatusBones.innerText = "جاهز للتحرير والفتح!";
-                badgeStatusBones.className = "text-[9px] text-brandGold font-bold block";
-                if (!appState.claimedBadges.badgeBones) {
+                if (badgeStatusBones) {
+                    badgeStatusBones.innerText = "جاهز للتحرير والفتح!";
+                    badgeStatusBones.className = "text-[9px] text-brandGold font-bold block";
+                }
+                if (!appState.claimedBadges.badgeBones && claimBtnBones) {
                     claimBtnBones.classList.remove('hidden');
                 }
             } else {
-                badgeStatusBones.innerText = toArabicDigits(`تناول المكملات لحماية ركبتكِ وجهازكِ الحركي (${checkedSupps} / ٤)`);
-                badgeStatusBones.className = "text-[9px] text-brandBlack/70 font-bold block";
-                claimBtnBones.classList.add('hidden');
+                if (badgeStatusBones) {
+                    badgeStatusBones.innerText = toArabicDigits(`تناول المكملات لحماية ركبتكِ وجهازكِ الحركي (${checkedSupps} / ٤)`);
+                    badgeStatusBones.className = "text-[9px] text-brandBlack/70 font-bold block";
+                }
+                if (claimBtnBones) claimBtnBones.classList.add('hidden');
             }
 
             // 3. Water Hydration Badge
             const waterPercent = Math.min(100, (appState.loggedWaterMl / targetWaterMl) * 100);
-            document.getElementById('badge-progress-water').style.width = `${waterPercent}%`;
+            const progressBarWater = document.getElementById('badge-progress-water');
+            if (progressBarWater) progressBarWater.style.width = `${waterPercent}%`;
             
             const badgeStatusWater = document.getElementById('badge-status-text-water');
             const claimBtnWater = document.getElementById('badge-claim-btn-water');
             
             if (appState.loggedWaterMl >= targetWaterMl) {
-                badgeStatusWater.innerText = "جاهز للتحرير والفتح!";
-                badgeStatusWater.className = "text-[9px] text-brandGold font-bold block";
-                if (!appState.claimedBadges.badgeWater) {
+                if (badgeStatusWater) {
+                    badgeStatusWater.innerText = "جاهز للتحرير والفتح!";
+                    badgeStatusWater.className = "text-[9px] text-brandGold font-bold block";
+                }
+                if (!appState.claimedBadges.badgeWater && claimBtnWater) {
                     claimBtnWater.classList.remove('hidden');
                 }
             } else {
-                badgeStatusWater.innerText = toArabicDigits(`تطهير الخلايا وحماية الكليتين (${appState.loggedWaterMl} / ٤٢٠٠ مل)`);
-                badgeStatusWater.className = "text-[9px] text-brandBlack/70 font-bold block";
-                claimBtnWater.classList.add('hidden');
+                if (badgeStatusWater) {
+                    badgeStatusWater.innerText = toArabicDigits(`تطهير الخلايا وحماية الكليتين (${appState.loggedWaterMl} / ٤٢٠٠ مل)`);
+                    badgeStatusWater.className = "text-[9px] text-brandBlack/70 font-bold block";
+                }
+                if (claimBtnWater) claimBtnWater.classList.add('hidden');
             }
         }
 
@@ -2609,20 +2695,32 @@
             document.getElementById('profile-streak-days').innerText = toArabicDigits(appState.streakDays);
 
             const badgesConfig = [
-                { key: 'badge192', id: 'badge-card-192', iconId: 'badge-icon-192' },
-                { key: 'badgeBones', id: 'badge-card-bones', iconId: 'badge-icon-bones' },
-                { key: 'badgeWater', id: 'badge-card-water', iconId: 'badge-icon-water' }
+                { key: 'badge192', id: 'badge-card-192', iconId: 'badge-icon-192', btnId: 'badge-claim-btn-192' },
+                { key: 'badgeBones', id: 'badge-card-bones', iconId: 'badge-icon-bones', btnId: 'badge-claim-btn-bones' },
+                { key: 'badgeWater', id: 'badge-card-water', iconId: 'badge-icon-water', btnId: 'badge-claim-btn-water' }
             ];
 
             badgesConfig.forEach(badge => {
+                const card = document.getElementById(badge.id);
+                const icon = document.getElementById(badge.iconId);
+                const btn = document.getElementById(badge.btnId);
+
                 if (appState.claimedBadges[badge.key]) {
-                    const card = document.getElementById(badge.id);
                     if (card) {
                         card.className = "p-4 rounded-xl border-2 border-brandGold bg-gradient-to-r from-brandPink/5 to-white relative overflow-hidden flex flex-col justify-between transition-all pink-shadow";
                     }
-                    const icon = document.getElementById(badge.iconId);
                     if (icon) {
                         icon.className = "w-4 h-4 text-brandGold";
+                    }
+                    if (btn) {
+                        btn.classList.add('hidden');
+                    }
+                } else {
+                    if (card) {
+                        card.className = "p-4 rounded-xl border pink-border-subtle transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-white pink-shadow-sm";
+                    }
+                    if (icon) {
+                        icon.className = "w-4 h-4 text-brandPink/50";
                     }
                 }
             });
@@ -2639,19 +2737,22 @@
                 cardId = "badge-card-192";
                 iconId = "badge-icon-192";
                 appState.claimedBadges.badge192 = true;
-                document.getElementById('badge-claim-btn-192').classList.add('hidden');
+                const btn = document.getElementById('badge-claim-btn-192');
+                if (btn) btn.classList.add('hidden');
             } else if (badgeKey === 'bones') {
                 text = "لقد فتحتِ 'وسام العظام الفولاذية'! بفضل التزامكِ المذهل بإمداد هيكلكِ العظمي بسترات الكالسيوم المخلبية عالية الامتصاص، فيتامين د٣، والمغنيسيوم جليسينات لتهدئة الأوتار والمفاصل!";
                 cardId = "badge-card-bones";
                 iconId = "badge-icon-bones";
                 appState.claimedBadges.badgeBones = true;
-                document.getElementById('badge-claim-btn-bones').classList.add('hidden');
+                const btn = document.getElementById('badge-claim-btn-bones');
+                if (btn) btn.classList.add('hidden');
             } else if (badgeKey === 'water') {
                 text = "لقد فزتِ بلقب 'وسام نقاء الكليتين والخلايا'! بفضل غسيل وتطهير الكليتين المستمر بالماء الفسيولوجي المطور لتصريف حمض البوليك الزائد كيميائياً وحماية الغضاريف والمفاصل.";
                 cardId = "badge-card-water";
                 iconId = "badge-icon-water";
                 appState.claimedBadges.badgeWater = true;
-                document.getElementById('badge-claim-btn-water').classList.add('hidden');
+                const btn = document.getElementById('badge-claim-btn-water');
+                if (btn) btn.classList.add('hidden');
             }
 
             saveStateToLocalStorage();
