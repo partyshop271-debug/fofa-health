@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منصة التحول الفسيولوجي المتقدم | حلويات بوسي</title>
+    
+    <!-- PWA Smart Embedded Manifest (With premium gold/pink theme color) -->
+    <link rel="manifest" href='data:application/json,{"name":"منصة التحول الفسيولوجي","short_name":"التحول الفسيولوجي","start_url":".","display":"standalone","background_color":"#FFFFFF","theme_color":"#FF91A4","orientation":"portrait","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/3068/3068323.png","sizes":"512x512","type":"image/png"}]}'>
+    <meta name="theme-color" content="#FF91A4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="التحول الفسيولوجي">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3068/3068323.png">
+
+    <!-- Tailwind CSS with strict custom brand tokens -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brandPink: '#FF91A4',
+                brandGold: '#D4AF37',
+                brandBlack: '#111111',
+                brandWhite: '#FFFFFF',
+              },
+              boxShadow: {
+                'sm': '0 4px 15px -3px rgba(255, 145, 164, 0.12)',
+                'DEFAULT': '0 8px 25px -5px rgba(255, 145, 164, 0.18)',
+                'md': '0 10px 30px -10px rgba(255, 145, 164, 0.22)',
+                'lg': '0 15px 35px -12px rgba(255, 145, 164, 0.28)',
+                'xl': '0 20px 45px -15px rgba(255, 145, 164, 0.35)',
+              }
+            }
+          }
+        }
+    </script>
+    <!-- Google Fonts - Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --brand-pink: #FF91A4;
+            --brand-gold: #D4AF37;
+            --brand-black: #111111;
+            --brand-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--brand-white);
+            color: var(--brand-black);
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .pink-border { border-color: var(--brand-pink); }
+        .pink-border-subtle { border-color: rgba(255, 145, 164, 0.15); }
+        .pink-shadow { box-shadow: 0 10px 35px -10px rgba(255, 145, 164, 0.22); }
+        .pink-shadow-sm { box-shadow: 0 4px 15px -3px rgba(255, 145, 164, 0.12); }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700 !important;
+        }
+        
+        circle {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Responsive Slider Cross-Browser */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--brand-pink);
+            border: 2px solid var(--brand-white);
+            box-shadow: 0 0 10px rgba(255, 145, 164, 0.5);
+            cursor: pointer;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            transition: transform 0.1s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+        input[type="range"]::-moz-range-thumb {
+            background: var(--brand-pink);
+            border: 2px solid var(--brand-white);
+            box-shadow: 0 0 10px rgba(255, 145, 164, 0.5);
+            cursor: pointer;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            border: none;
+            transition: transform 0.1s ease;
+        }
+        input[type="range"]::-moz-range-thumb:active {
+            transform: scale(1.2);
+        }
+
+        /* Wave water animation inside container */
+        .wave-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 145, 164, 0.08);
+            border-top-left-radius: 40% 60%;
+            border-top-right-radius: 40% 60%;
+            animation: waveMotion 12s linear infinite;
+        }
+        @keyframes waveMotion {
+            0% { transform: translateX(0) translateY(10px); }
+            50% { transform: translateX(-50%) translateY(0); }
+            100% { transform: translateX(0) translateY(10px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white pb-28 md:pb-8">
+
+    <!-- Premium Header -->
+    <header class="border-b pink-border-subtle bg-white sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 rounded-full bg-brandPink flex items-center justify-center text-white pink-shadow">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-white animate-pulse"></i>
+                </div>
+                <div>
+                    <h1 class="text-xs md:text-sm tracking-tight text-brandBlack leading-tight font-bold">منصة التحول الفسيولوجي</h1>
+                    <p class="text-[9px] text-brandBlack/80 font-bold">المستشار الفسيولوجي المطور لـ حلويات بوسي</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <button onclick="openWidgetCustomizer()" class="p-2 rounded-xl hover:bg-brandPink/10 text-brandBlack transition focus:outline-none" title="عناصر التحكم">
+                    <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </button>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-brandPink/5 text-brandPink border pink-border-subtle">
+                    <span class="w-2 h-2 rounded-full bg-brandPink ml-1.5 animate-pulse"></span>
+                    بروتوكول المفاصل الفولاذية
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Content Wrapper -->
+    <main class="max-w-4xl mx-auto px-4 mt-6 flex-grow w-full pb-8">
+
+        <!-- Tab 1: يومنا (Today Home) -->
+        <div id="view-today" class="app-view space-y-6">
+            
+            <!-- Custom Widget Settings -->
+            <div id="widget-customizer" class="hidden p-5 rounded-2xl bg-white border-2 border-brandPink pink-shadow mb-6">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-brandPink/10">
+                    <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                        <i data-lucide="sliders" class="w-4 h-4 text-brandPink"></i>
+                        عناصر الشاشة الرئيسية النشطة
+                    </h3>
+                    <button onclick="closeWidgetCustomizer()" class="text-xs text-brandPink font-bold hover:text-brandPink/80 focus:outline-none">إغلاق</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="flex items-center justify-between p-3 rounded-xl border border-brandPink/20 bg-white cursor-pointer hover:border-brandPink/50 transition">
+                        <span class="text-[11px] font-bold text-brandBlack">شرب الماء الفسيولوجي</span>
+                        <input type="checkbox" id="toggle-water-widget" checked onchange="toggleWidget('widget-water')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                    <label class="flex items-center justify-between p-3 rounded-xl border border-brandPink/20 bg-white cursor-pointer hover:border-brandPink/50 transition">
+                        <span class="text-[11px] font-bold text-brandBlack">عداد وزن الجسم والضغط الحركي</span>
+                        <input type="checkbox" id="toggle-weight-widget" checked onchange="toggleWidget('widget-weight')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                    <label class="flex items-center justify-between p-3 rounded-xl border border-brandPink/20 bg-white cursor-pointer hover:border-brandPink/50 transition">
+                        <span class="text-[11px] font-bold text-brandBlack">المكملات وحماية كثافة العظام</span>
+                        <input type="checkbox" id="toggle-supp-widget" checked onchange="toggleWidget('widget-supp')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                    <label class="flex items-center justify-between p-3 rounded-xl border border-brandPink/20 bg-white cursor-pointer hover:border-brandPink/50 transition">
+                        <span class="text-[11px] font-bold text-brandBlack">مرشد حلويات بوسي الفسيولوجي</span>
+                        <input type="checkbox" id="toggle-coach-widget" checked onchange="toggleWidget('widget-coach')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                    <label class="flex items-center justify-between p-3 rounded-xl border border-brandPink/20 bg-white cursor-pointer hover:border-brandPink/50 transition">
+                        <span class="text-[11px] font-bold text-brandBlack">المفكرة والمذكرات اليومية</span>
+                        <input type="checkbox" id="toggle-journal-widget" checked onchange="toggleWidget('widget-journal')" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                    <!-- Phone Notifications Toggle Added Elegantly -->
+                    <label class="flex items-center justify-between p-3 rounded-xl border-2 border-brandPink/35 bg-brandPink/5 cursor-pointer hover:border-brandPink transition">
+                        <span class="text-[11px] font-bold text-brandBlack flex items-center gap-1.5">
+                            <i data-lucide="bell" class="w-3.5 h-3.5 text-brandPink"></i>
+                            إشعارات الهاتف التذكيرية
+                        </span>
+                        <input type="checkbox" id="toggle-phone-notifications" onchange="togglePhoneNotifications()" class="w-4 h-4 text-brandPink focus:ring-brandPink/50 rounded border-brandPink">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Profile Summary & Dynamic Metrics -->
+            <div class="bg-gradient-to-r from-brandPink/5 to-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-1">
+                        <span class="inline-block bg-brandPink/10 text-brandPink text-[9px] font-bold px-2.5 py-1 rounded-full mb-1">الملف الشخصي الفسيولوجي</span>
+                        <h2 class="text-sm md:text-md text-brandBlack font-bold" id="greeting-text">أهلاً بكِ في منصة تتبع بروتوكول حلويات بوسي اليومية</h2>
+                        <p class="text-[11px] text-brandBlack/80 font-semibold leading-relaxed">نتابع معاً رحلة الـ 40 يوماً المباركة لحماية الركبتين والعظام واستعادة خفة حركتك المفقودة بذكاء وعلم فسيولوجي دقيق.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-3 w-full md:w-auto">
+                        <div class="bg-white px-3 py-2.5 rounded-xl border pink-border-subtle text-center pink-shadow-sm">
+                            <span class="text-[9px] text-brandBlack block font-bold">وزن البداية</span>
+                            <span class="text-xs font-bold text-brandBlack" id="initial-weight-text">١٢٠.٠ كجم</span>
+                        </div>
+                        <div onclick="openLogWeightModal()" class="bg-white px-3 py-2.5 rounded-xl border-2 border-brandPink text-center pink-shadow relative cursor-pointer hover:scale-105 transition-transform">
+                            <span class="text-[9px] text-brandPink block font-bold">الوزن الحالي</span>
+                            <span class="text-xs font-bold text-brandPink" id="current-weight-display">١١٨.٩ كجم</span>
+                        </div>
+                        <div class="bg-white px-3 py-2.5 rounded-xl border pink-border-subtle text-center pink-shadow-sm">
+                            <span class="text-[9px] text-brandBlack block font-bold">الهدف النهائي</span>
+                            <span class="text-xs font-bold text-brandGold" id="target-weight-text">٩٠.٠ كجم</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mini Progress Bar Towards Target -->
+                <div class="mt-4 pt-4 border-t pink-border-subtle flex items-center justify-between gap-4">
+                    <span class="text-[10px] font-bold text-brandBlack/70 shrink-0">مدى التقدم نحو الهدف:</span>
+                    <div class="flex-grow bg-brandPink/10 h-2 rounded-full overflow-hidden">
+                        <div id="target-progress-bar" class="bg-brandPink h-full rounded-full transition-all duration-500" style="width: 3.6%"></div>
+                    </div>
+                    <span id="target-progress-text" class="text-[10px] font-bold text-brandPink shrink-0">٣.٦%</span>
+                </div>
+            </div>
+
+            <!-- Active Refeeding Timeline Guide -->
+            <div id="refeeding-active-widget" class="hidden p-6 rounded-2xl border-2 border-brandGold bg-gradient-to-r from-brandGold/5 to-white pink-shadow space-y-4">
+                <div class="flex justify-between items-center pb-2 border-b border-brandGold/20">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brandGold animate-ping"></span>
+                        <h3 class="text-xs font-bold text-brandBlack">بروتوكول إعادة تشغيل الجهاز الهضمي الآمن قيد التفعيل</h3>
+                    </div>
+                    <span class="text-[10px] text-brandGold font-bold bg-brandGold/10 px-2 rounded-full border border-brandGold/20" id="refeeding-timer-text">٠٣:٠٠:٠٠ متبقي</span>
+                </div>
+                <p class="text-[11px] text-brandBlack/85 leading-relaxed font-semibold">
+                    لقد اخترتِ كسر الصيام الطويل بعلم وأمان. يرجى المتابعة خطوة بخطوة لمنع تمدد المعدة المفاجئ أو تشنج عضلات البطن:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div id="refeed-phase-1" class="p-3 rounded-xl border border-brandGold bg-white text-right space-y-1">
+                        <span class="text-[9px] font-bold text-brandGold block">المرحلة ١ (الساعة الأولى)</span>
+                        <span class="text-[11px] font-bold text-brandBlack block">مرقة عظام طبيعية دافئة</span>
+                        <span class="text-[9px] text-brandBlack/70 block">لترميم جدار الأمعاء وتجهيز الغشاء الداخلي للامتصاص.</span>
+                    </div>
+                    <div id="refeed-phase-2" class="p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50">
+                        <span class="text-[9px] font-bold text-brandPink block">المرحلة ٢ (الساعة الثانية)</span>
+                        <span class="text-[11px] font-bold text-brandBlack block">خمائر حيوية (بروبايوتك)</span>
+                        <span class="text-[9px] text-brandBlack/70 block">ربع كوب زبادي طبيعي أو مخلل منزلي لإنعاش البكتيريا النافعة.</span>
+                    </div>
+                    <div id="refeed-phase-3" class="p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50">
+                        <span class="text-[9px] font-bold text-brandPink block">المرحلة ٣ (الساعة الثالثة)</span>
+                        <span class="text-[11px] font-bold text-brandBlack block">وجبة كيتون خفيفة جداً</span>
+                        <span class="text-[9px] text-brandBlack/70 block">بيض مخفوق بالزبدة مع أفوكادو، خالي تماماً من السكر والنشويات.</span>
+                    </div>
+                </div>
+                <button onclick="terminateRefeedingProtocol()" class="w-full py-2 bg-brandPink/10 hover:bg-brandPink/20 text-brandPink text-xs font-bold rounded-lg transition focus:outline-none">إنهاء بروتوكول الكسر والعودة للنظام الطبيعي</button>
+            </div>
+
+            <!-- Active Fasting Card Widget -->
+            <div id="fasting-active-card" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2 h-full bg-brandPink"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <span id="fasting-badge-status" class="text-[10px] font-bold text-brandGold bg-brandGold/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-brandGold/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandGold animate-pulse"></span>
+                        صيام مائي كيتوني نشط طويل المدى
+                    </span>
+                    <span id="fasting-start-date-text" class="text-[10px] text-brandBlack font-bold">بدأ الصيام: ٢٩ مايو، ٠٤:٢٦ م</span>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-1">
+                        <span class="text-[9px] text-brandBlack/70 font-bold uppercase tracking-wider block">سجل الصيام المستمر فعلياً</span>
+                        <div class="text-3xl font-bold text-brandBlack" id="today-large-timer">١٩٢:١٤:٠٢</div>
+                        <p class="text-[11px] text-brandBlack/80 font-semibold">الوقت المنقضي من الصيام المفتوح (<span class="text-brandPink font-bold" id="fasting-excess-percent">١٠٦١%</span> من المستهدف اليومي المبدئي ٢٠:٤)</p>
+                    </div>
+                    <button onclick="switchToTab('fasting')" class="w-full md:w-auto px-5 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow flex items-center justify-center gap-2 focus:outline-none">
+                        <i data-lucide="timer" class="w-4 h-4"></i>
+                        ساعة الصيام وفوائد التجدد
+                    </button>
+                </div>
+            </div>
+
+            <!-- INTELLIGENT COACHING & PSYCHOLOGICAL CONVERSATION ENGINE -->
+            <div id="widget-coach" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <div class="flex items-center gap-2.5 pb-2 border-b pink-border-subtle">
+                    <div class="p-2 rounded-xl bg-brandPink/5 text-brandPink">
+                        <i data-lucide="brain" class="w-5 h-5 text-brandPink animate-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xs md:text-sm font-bold text-brandBlack">مستشارك الفسيولوجي المساعد لـ حلويات بوسي</h3>
+                        <p class="text-[10px] text-brandBlack/70 font-bold">محادثة حية تفاعلية وتوجيه صوتي مدعوم بذكاء فسيولوجي للتعامل مع عقبات الصيام والمفاصل</p>
+                    </div>
+                </div>
+
+                <!-- Live Chat Window Interface -->
+                <div class="border pink-border-subtle rounded-2xl overflow-hidden bg-brandPink/5 flex flex-col">
+                    <div class="h-64 overflow-y-auto p-4 space-y-3 no-scrollbar flex flex-col" id="chat-messages-container">
+                        <!-- Initial Message -->
+                        <div class="bg-white p-3 rounded-2xl rounded-tr-none text-xs text-brandBlack font-semibold leading-relaxed max-w-[85%] self-start pink-shadow-sm border pink-border-subtle">
+                            أهلاً بكِ يا فنانة.. أنا مستشارك الفسيولوجي، وموجود هنا لمتابعة وتفسير كل نبضة وخلايا في جسمك خطوة بخطوة. طمنيني، حاسة بإيه دلوقتي؟
+                        </div>
+                    </div>
+                    <!-- Chat Typing Indicator -->
+                    <div id="chat-typing-indicator" class="hidden px-4 py-2 text-[10px] text-brandPink font-bold flex items-center gap-1.5 bg-white/50 border-t pink-border-subtle">
+                        <span class="w-1.5 h-1.5 bg-brandPink rounded-full animate-bounce"></span>
+                        <span class="w-1.5 h-1.5 bg-brandPink rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                        <span class="w-1.5 h-1.5 bg-brandPink rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                        مستشارك الفسيولوجي يحلل البيانات ويصيغ الرد الحركي...
+                    </div>
+                    
+                    <!-- Real-time Text Input Field -->
+                    <div class="p-2 bg-white border-t pink-border-subtle flex gap-2">
+                        <input type="text" id="coach-text-input" onkeypress="handleCoachKeyPress(event)" class="flex-grow p-2.5 rounded-xl border border-brandPink/20 text-xs font-semibold text-brandBlack focus:border-brandPink focus:outline-none placeholder-brandBlack/45" placeholder="اسألي مستشارك الفسيولوجي أي شيء عن مفاصلكِ وصيامكِ...">
+                        <button onclick="sendCustomCoachMessage()" class="p-2.5 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white transition focus:outline-none" title="إرسال">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Quick Suggestions (Interactive Chips) -->
+                    <div class="p-3 border-t pink-border-subtle bg-white flex gap-1.5 overflow-x-auto no-scrollbar">
+                        <button onclick="askCoachChat('joint-pain', 'أشعر بآلام خفيفة في مفاصل الركبة والعظام')" class="px-3 py-1.5 rounded-full border border-brandPink hover:bg-brandPink/5 text-[10px] font-bold text-brandBlack shrink-0 transition focus:outline-none">
+                            مفاصل ركبتي تؤلمني 🦴
+                        </button>
+                        <button onclick="askCoachChat('boredom-hunger', 'عندي رغبة سلوكية ملحة لتناول السكريات والملل')" class="px-3 py-1.5 rounded-full border border-brandPink hover:bg-brandPink/5 text-[10px] font-bold text-brandBlack shrink-0 transition focus:outline-none">
+                            أشعر برغبة ملحة في السكريات والملل 🧁
+                        </button>
+                        <button onclick="askCoachChat('low-energy', 'أشعر بخمول وضعف في مستويات طاقة جسمي')" class="px-3 py-1.5 rounded-full border border-brandPink hover:bg-brandPink/5 text-[10px] font-bold text-brandBlack shrink-0 transition focus:outline-none">
+                            عندي كسل وضعف طاقة 🔋
+                        </button>
+                        <button onclick="askCoachChat('weight-panic', 'أشعر بالقلق الشديد حيال ثبات وزني على الميزان')" class="px-3 py-1.5 rounded-full border border-brandPink hover:bg-brandPink/5 text-[10px] font-bold text-brandBlack shrink-0 transition focus:outline-none">
+                            قلقة من ثبات الوزن ⚖️
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WATER WIDGET -->
+            <div id="widget-water" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2.5">
+                        <div class="p-2 rounded-xl bg-brandPink/5 text-brandPink">
+                            <i data-lucide="droplet" class="w-5 h-5 text-brandPink"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs md:text-sm font-bold text-brandBlack">شرب الماء الفسيولوجي اليومي</h3>
+                            <p class="text-[10px] text-brandBlack/70 font-bold">ضروري لطرد الكيتونات الزائدة واليوريك أسيد وحماية كفاءة الكليتين</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-bold text-brandBlack" id="water-widget-ratio">٦٠٠ / ٤٢٠٠ مل</span>
+                        <p class="text-[9px] text-brandBlack/70 font-bold">مستهدف آمن لوزنكِ اليوم</p>
+                    </div>
+                </div>
+                <div class="wave-container w-full bg-brandPink/10 rounded-full h-4 overflow-hidden relative">
+                    <div class="wave-layer transition-all duration-700" style="height: 14.3%; width: 100%;"></div>
+                    <div id="water-widget-bar" class="bg-brandPink/40 h-full transition-all duration-500" style="width: 14.3%"></div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="addWaterMl(250)" class="flex-1 py-2.5 rounded-lg border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandBlack bg-white transition flex items-center justify-center gap-1 focus:outline-none">
+                        + ٢٥٠ مل
+                    </button>
+                    <button onclick="addWaterMl(500)" class="flex-1 py-2.5 rounded-lg border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandBlack bg-white transition flex items-center justify-center gap-1 focus:outline-none">
+                        + ٥٠٠ مل
+                    </button>
+                    <button onclick="addWaterMl(1500)" class="flex-1 py-2.5 rounded-lg border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandBlack bg-white transition flex items-center justify-center gap-1 focus:outline-none">
+                        + ١.٥ لتر
+                    </button>
+                </div>
+            </div>
+
+            <!-- WEIGHT & JOINT LOAD RELIEF WIDGET -->
+            <div id="widget-weight" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="p-2 rounded-xl bg-brandPink/5">
+                        <i data-lucide="scale" class="w-5 h-5 text-brandPink"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xs md:text-sm font-bold text-brandBlack">عداد ضغط الوزن والحمل الميكانيكي المزال</h3>
+                        <p class="text-[10px] text-brandBlack/70 font-bold">تحليل علمي لتخفيف العبء المباشر عن غضاريف الركبة وفقرات القطنية</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="p-4 rounded-xl border border-brandPink bg-white flex flex-col justify-between pink-shadow">
+                        <div>
+                            <span class="text-[10px] text-brandBlack/80 font-bold block uppercase">تخفيف الضغط التراكمي عن مفاصلكِ</span>
+                            <span class="text-2xl font-bold text-brandPink" id="joint-relief-today">٤.٤ كجم</span>
+                            <p class="text-xs text-brandBlack mt-2 leading-relaxed font-semibold" id="joint-relief-desc">
+                                بانخفاض ميزانكِ بمقدار <strong class="text-brandPink font-bold" id="lost-weight-val">١.١ كجم</strong> عن البداية، قمتِ بإزالة أكثر من <strong class="text-brandPink font-bold" id="relieved-load-val">٤.٤ كجم</strong> من الضغط والجهد الحركي عن غضاريف ركبتيكِ وفقرات الظهر السفلى.
+                            </p>
+                        </div>
+                        <span class="text-[10px] font-bold text-brandGold flex items-center gap-1 mt-3">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> عظامكِ ومفاصلكِ في طريقها للاستشفاء الكامل والراحة التامة
+                        </span>
+                    </div>
+
+                    <div class="p-4 rounded-xl border pink-border-subtle bg-white pink-shadow-sm space-y-3">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-brandBlack font-bold">مؤصل كتلة دهون الجسم:</span>
+                            <span class="font-bold text-brandPink" id="fat-index-text">٤٤.٧٥ (سمنة مفرطة شديدة)</span>
+                        </div>
+                        <div class="relative w-full h-4 bg-brandPink/10 rounded-full overflow-hidden flex">
+                            <div class="h-full bg-gradient-to-r from-brandPink/30 via-brandGold to-brandPink w-full relative">
+                                <span class="absolute right-1/4 top-0.5 w-3 h-3 rounded-full bg-white border-2 border-brandPink animate-ping"></span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-brandBlack/80 leading-relaxed font-semibold">أنتِ عند القراءات العليا لنسبة الدهون؛ وهذا يعني علمياً أن مخزون الطاقة الكيتونية بجسدكِ وفير جداً، مما يمنح جسمكِ القدرة الكاملة على توفير الطاقة ذاتياً مع حماية النسيج العضلي تماماً.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BONE PROTECTION & SUPPLEMENTS CHECKLIST -->
+            <div id="widget-supp" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="p-2 rounded-xl bg-brandPink/5">
+                            <i data-lucide="pill" class="w-5 h-5 text-brandPink"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs md:text-sm font-bold text-brandBlack">سجل استهلاك المكملات وحماية مفاصلكِ</h3>
+                            <p class="text-[10px] text-brandBlack/70 font-bold">الالتزام اليومي يحميكِ من ذوبان المعادن والوهن وهشاشة العظام</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-brandPink bg-brandPink/5 px-2.5 py-1 rounded-full border pink-border-subtle" id="supplements-ratio">٠ / ٤ تم تناولها</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label class="flex items-start gap-3 p-3 rounded-xl border pink-border-subtle hover:border-brandPink transition cursor-pointer bg-white">
+                        <input type="checkbox" id="chk-calcium" onchange="updateSuppRatio()" class="supp-check mt-1 w-4 h-4 text-brandPink focus:ring-brandPink/50 border-brandPink rounded">
+                        <div>
+                            <span class="text-xs font-bold text-brandBlack block">سترونج كالسيوم سترات (١٠٠٠ مجم)</span>
+                            <span class="text-[10px] text-brandBlack/70 font-bold">مرتين يومياً لحماية النسيج العظمي المجهد من الوزن الثقيل</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border pink-border-subtle hover:border-brandPink transition cursor-pointer bg-white">
+                        <input type="checkbox" id="chk-vitD3" onchange="updateSuppRatio()" class="supp-check mt-1 w-4 h-4 text-brandPink focus:ring-brandPink/50 border-brandPink rounded">
+                        <div>
+                            <span class="text-xs font-bold text-brandBlack block">فيتامين د٣ (٥٠٠٠ وحدة دولية)</span>
+                            <span class="text-[10px] text-brandBlack/70 font-bold">مرة واحدة لترسيب الكالسيوم مباشرة في العظام بأمان ومنع ترسبه بالشرايين</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border pink-border-subtle hover:border-brandPink transition cursor-pointer bg-white">
+                        <input type="checkbox" id="chk-himalaya" onchange="updateSuppRatio()" class="supp-check mt-1 w-4 h-4 text-brandPink focus:ring-brandPink/50 border-brandPink rounded">
+                        <div>
+                            <span class="text-xs font-bold text-brandBlack block">أملاح الهيمالايا والبوتاسيوم (الماء الفسيولوجي)</span>
+                            <span class="text-[10px] text-brandBlack/70 font-bold">على مدار اليوم لمنع الصداع الشديد وتوازن ضغط الدم أثناء الكيتوزية</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border pink-border-subtle hover:border-brandPink transition cursor-pointer bg-white">
+                        <input type="checkbox" id="chk-magnesium" onchange="updateSuppRatio()" class="supp-check mt-1 w-4 h-4 text-brandPink focus:ring-brandPink/50 border-brandPink rounded">
+                        <div>
+                            <span class="text-xs font-bold text-brandBlack block">مغنيسيوم جليسينات (٤٠٠ مجم)</span>
+                            <span class="text-[10px] text-brandBlack/70 font-bold">مرة واحدة مساءً لتنظيم دقات القلب ومنع تشنجات عضلات السمانة بالليل</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- JOURNAL & NOTES WIDGET -->
+            <div id="widget-journal" class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="p-2 rounded-xl bg-brandPink/5 text-brandPink">
+                        <i data-lucide="pencil-line" class="w-5 h-5 text-brandPink"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xs md:text-sm font-bold text-brandBlack">مفكرة التحول والنشاط اليومي</h3>
+                        <p class="text-[10px] text-brandBlack/70 font-bold">دوني رصدك الخاص للأعراض، الطاقة، أو شعور العظام اليوم</p>
+                    </div>
+                </div>
+                <textarea id="journal-input" oninput="saveJournalEntry(this.value)" rows="3" class="w-full p-3 rounded-xl border border-brandPink/20 focus:border-brandPink focus:outline-none text-xs font-semibold text-brandBlack placeholder-brandBlack/45" placeholder="اكتبي هنا ما تودين رصده اليوم..."></textarea>
+                <div class="flex justify-between items-center">
+                    <span class="text-[9px] text-brandBlack/50 font-bold">يتم الحفظ تلقائياً في ذاكرة المتصفح</span>
+                    <button onclick="clearJournal()" class="text-[9px] text-brandPink font-bold hover:underline focus:outline-none">مسح المفكرة</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 2: الصيام -->
+        <div id="view-fasting" class="app-view hidden space-y-8">
+            
+            <div class="bg-white rounded-2xl p-8 border pink-border-subtle pink-shadow-sm flex flex-col items-center justify-center text-center space-y-6">
+                <div>
+                    <h2 class="text-md md:text-lg text-brandBlack font-bold">ساعة الصيام والتحول الكيتوني الفسيولوجي</h2>
+                    <p class="text-xs text-brandBlack/70 font-bold mt-1">تتبع مرن وديناميكي لعمر صيامكِ الحالي مع استعراض حقيقي لمستويات الاستشفاء</p>
+                </div>
+
+                <!-- Animated Fasting Ring SVG -->
+                <div class="relative w-64 h-64 flex items-center justify-center">
+                    <svg class="w-full h-full -rotate-90">
+                        <circle cx="128" cy="128" r="110" stroke="#FFF0F2" stroke-width="10" fill="transparent"></circle>
+                        <circle id="fasting-progress-ring" cx="128" cy="128" r="110" stroke="#FF91A4" stroke-width="10" fill="transparent" stroke-dasharray="691" stroke-dashoffset="691" class="transition-all duration-1000"></circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="text-[10px] text-brandBlack/80 font-bold uppercase tracking-wider">سجل الصيام الفعلي</span>
+                        <span class="text-4xl font-bold text-brandBlack mt-1" id="ring-timer">١٩٢:١٤:٠٢</span>
+                        <span class="text-[10px] font-bold text-brandGold bg-brandGold/10 border border-brandGold/20 px-2.5 py-1 rounded-full mt-2" id="ring-stage">تجديد الخلايا المناعية النشط</span>
+                    </div>
+                </div>
+
+                <!-- Fasting Simulator Slider -->
+                <div class="w-full max-w-sm p-4 bg-white rounded-xl space-y-2 border border-brandPink pink-shadow-sm">
+                    <label class="flex justify-between text-xs font-bold text-brandBlack">
+                        <span>محاكي ساعات الصيام التفاعلي:</span>
+                        <span class="text-brandPink font-bold" id="simulated-hours-text">١٩٢ ساعة صيام</span>
+                    </label>
+                    <input type="range" id="fasting-simulator" min="0" max="360" value="192" oninput="simulateFastingHours(this.value)" class="w-full accent-[#FF91A4] h-2 bg-brandPink/10 rounded-lg cursor-pointer">
+                    <p class="text-[10px] text-brandBlack/80 font-bold leading-normal">حركي شريط المحاكاة لتستعرضي كيف يتغير وضع الخلايا والمفاصل ساعة بساعة بالأسفل!</p>
+                </div>
+
+                <!-- Custom Start New Fasting Session -->
+                <div id="new-fasting-form" class="hidden w-full max-w-md p-5 rounded-2xl border-2 border-brandPink bg-white pink-shadow space-y-4 text-right">
+                    <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5 border-b pink-border-subtle pb-2">
+                        <i data-lucide="play-circle" class="w-4 h-4 text-brandPink"></i>
+                        البدء في بروتوكول صيام كيتوني جديد
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">نوع ومستهدف الصيام:</label>
+                            <select id="new-fast-type" class="w-full p-2.5 rounded-xl border border-brandPink focus:outline-none text-xs font-bold text-brandBlack">
+                                <option value="water-keto">صيام مائي كيتوني طويل المدى (مستهدف ٢٤٠ ساعة)</option>
+                                <option value="intermittent-20">صيام متقطع ٢٠:٤ (مستهدف يومي ٢٠ ساعة)</option>
+                                <option value="intermittent-16">صيام متقطع مريح ١٦:٨ (مستهدف يومي ١٦ ساعة)</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">وقت البدء:</label>
+                                <input type="time" id="new-fast-time" class="w-full p-2.5 rounded-xl border border-brandPink text-xs font-bold text-brandBlack">
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">تاريخ البدء:</label>
+                                <input type="date" id="new-fast-date" class="w-full p-2.5 rounded-xl border border-brandPink text-xs font-bold text-brandBlack">
+                            </div>
+                        </div>
+                        <button onclick="startNewFastingSession()" class="w-full py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow focus:outline-none">
+                            تنشيط بروتوكول الصيام المطور الآن
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 w-full max-w-md pt-2" id="fasting-dates-box">
+                    <div class="p-3 rounded-xl bg-white border pink-border-subtle text-right pink-shadow-sm">
+                        <span class="text-[10px] text-brandBlack/80 block font-bold">تاريخ وموعد البدء</span>
+                        <span class="text-xs font-bold text-brandBlack" id="start-date-disp">٢٩ مايو، ٠٤:٢٦ م</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white border pink-border-subtle text-right pink-shadow-sm">
+                        <span class="text-[10px] text-brandBlack/80 block font-bold">توقيت الانتهاء المبدئي</span>
+                        <span class="text-xs font-bold text-brandBlack" id="end-date-disp">٣٠ مايو، ١٢:٢٦ م</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 w-full max-w-md" id="fasting-controls-box">
+                    <!-- Row 1: Core Operations -->
+                    <div class="flex gap-3 w-full">
+                        <button onclick="toggleFastingTimer()" id="btn-timer-control" class="flex-1 py-3 rounded-xl bg-brandPink/5 hover:bg-brandPink/10 text-brandPink font-bold text-xs transition border pink-border-subtle focus:outline-none">
+                            إيقاف العداد مؤقتاً
+                        </button>
+                        <button onclick="triggerEndFastModal()" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition shadow focus:outline-none">
+                            كسر الصيام الآمن
+                        </button>
+                    </div>
+                    
+                    <!-- Row 2: Precision Calibration & Resetting -->
+                    <div class="flex gap-3 w-full">
+                        <button onclick="openEditFastingModal()" class="flex-1 py-2.5 rounded-xl bg-white hover:bg-brandPink/5 text-brandBlack border border-brandPink/30 font-bold text-[11px] transition focus:outline-none flex items-center justify-center gap-1.5">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brandPink"></i>
+                            تعديل المواعيد
+                        </button>
+                        <button onclick="triggerResetConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-white hover:bg-red-50 text-red-500 border border-red-200 font-bold text-[11px] transition focus:outline-none flex items-center justify-center gap-1.5">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-red-500"></i>
+                            تصفير العداد
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cellular Benefits Timeline -->
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-6">
+                <h3 class="text-xs md:text-sm text-brandBlack font-bold">المراحل والفوائد البيولوجية للرحلة الحالية</h3>
+                <div class="space-y-4">
+                    <!-- Stage 1 -->
+                    <div id="stage-card-1" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
+                        <div id="stage-icon-1" class="p-2 rounded-full mt-1">
+                            <!-- Injected dynamically -->
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-1">
+                                نفاذ السكر والاعتياد الكيتوني (ساعة ١٢ - ١٨)
+                            </h4>
+                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">تفرغ جميع مخازن النشويات في الكبد، ويبدأ دماغكِ ومفاصلكِ في استخدام الكيتونات النظيفة المشتقة من كتلة دهونكِ كوقود مريح وخالٍ من سكر الدم.</p>
+                        </div>
+                    </div>
+                    <!-- Stage 2 -->
+                    <div id="stage-card-2" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
+                        <div id="stage-icon-2" class="p-2 rounded-full mt-1">
+                            <!-- Injected dynamically -->
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-2">
+                                انطلاق الالتهام الذاتي الفعال (Autophagy) (ساعة ٢٤ - ٤٨)
+                            </h4>
+                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">تقوم خلاياكِ بهضم الفيروسات والبروتينات التالفة وتفتيت التكلسات الالتهابية المترسبة حول غضاريف الركبتين وفقرات الظهر السفلى.</p>
+                        </div>
+                    </div>
+                    <!-- Stage 3 -->
+                    <div id="stage-card-3" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
+                        <div id="stage-icon-3" class="p-2 rounded-full mt-1">
+                            <!-- Injected dynamically -->
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-3">
+                                تجديد خلايا الدم البيضاء وبناء المفاصل (ساعة ٧٢ - ١٢٠)
+                            </h4>
+                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">يبدأ نخاع العظام في إنتاج جهاز مناعي جديد تماماً، ويرتفع هرمون النمو (HGH) لقمته لترميم الأوتار والغضاريف المجهدة من الوزن السابق.</p>
+                        </div>
+                    </div>
+                    <!-- Stage 4 -->
+                    <div id="stage-card-4" class="flex items-start gap-4 p-4 rounded-xl border transition-all duration-300">
+                        <div id="stage-icon-4" class="p-2 rounded-full mt-1">
+                            <!-- Injected dynamically -->
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brandBlack flex items-center gap-1.5" id="stage-title-4">
+                                الاستشفاء الهيكلي والصفاء الذهني الكامل (ساعة ١٨٠ - ٢٤٠)
+                            </h4>
+                            <p class="text-[11px] text-brandBlack/80 font-bold mt-1">انخفاض كلي للالتهابات المزمنة في الظهر والركبتين، مع ثبات نفسي هرموني وتصريف عميق لسموم الأنسجة الدهنية المنكمشة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 3: خطتي -->
+        <div id="view-plans" class="app-view hidden space-y-6">
+            
+            <div class="bg-gradient-to-r from-brandPink to-brandPink/90 rounded-2xl p-6 text-white shadow-lg space-y-4 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10"></div>
+                <div class="space-y-1 relative z-10">
+                    <span class="inline-block bg-white/20 px-3 py-1 rounded-full text-[9px] font-bold tracking-wider">خارطة الطريق الفسيولوجية الخاصة بكِ</span>
+                    <h3 class="text-sm md:text-md font-bold">بروتوكول الـ ٤٠ يوماً (يوم بيوم وساعة بساعة) لوزن ١٢٠ كجم</h3>
+                    <p class="text-xs text-white/95 leading-relaxed font-semibold">
+                        اختاري أي مرحلة أو يوم في الأسفل لتستعرضي فوراً ماذا يحدث داخل جسدكِ، مفاصلكِ، ومستويات حمض البوليك والكيتونات في تلك اللحظة بالدقة الطبية التفصيلية!
+                    </p>
+                </div>
+                
+                <!-- Horizontal Day Slider -->
+                <div class="flex gap-2 overflow-x-auto pb-2 pt-2 no-scrollbar" id="days-slider">
+                    <!-- Dynamic Generation of Main Milestones -->
+                </div>
+            </div>
+
+            <!-- Dynamic Day Details Display Area -->
+            <div id="day-details-card" class="bg-white rounded-2xl p-6 border-2 border-brandPink pink-shadow space-y-4">
+                <div class="flex justify-between items-center border-b pink-border-subtle pb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-brandGold animate-pulse"></span>
+                        <h4 class="text-xs font-bold text-brandBlack" id="detail-day-title">اليوم الأول: بدء التحول والاعتياد الكيتوني</h4>
+                    </div>
+                    <span class="text-xs font-bold text-brandPink bg-brandPink/5 px-2.5 py-1 rounded-full border pink-border-subtle" id="detail-day-hours">الساعات ١ - ٢٤</span>
+                </div>
+
+                <!-- Hour-by-Hour Interactive Breakdown -->
+                <div class="space-y-4" id="detail-day-timeline">
+                    <!-- Dynamic steps injected here -->
+                </div>
+
+                <!-- Joint & Medical Specialized Warning -->
+                <div class="p-4 rounded-xl bg-white border pink-border-subtle flex items-start gap-3 mt-4 pink-shadow-sm">
+                    <i data-lucide="info" class="w-5 h-5 text-brandPink shrink-0 mt-0.5"></i>
+                    <div>
+                        <span class="text-xs font-bold text-brandBlack block">إرشادات حماية العظام والمفاصل لهذه المرحلة:</span>
+                        <p class="text-[11px] text-brandBlack/80 font-bold leading-relaxed mt-1" id="detail-day-joint-advice">
+                            سترات الكالسيوم مع فيتامين د٣ لترميم مفاصلكِ وعظامكِ وحمايتها من الهشاشة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cumulative Overview Cards for easy summary -->
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack">نظرة عامة على مراحل الـ ٤٠ يوماً</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl border pink-border-subtle bg-white pink-shadow-sm">
+                        <span class="text-xs font-bold text-brandPink block mb-1">الأسبوع ١ - ٢ (طرد الالتهاب)</span>
+                        <p class="text-[11px] text-brandBlack/80 font-bold leading-normal">التخلص من احتباس الماء المرتبط بالأنسولين العالي. آلام العظام مؤقتة بسبب منافسة الكيتونات لليوريك أسيد في الكلى. تغلبي عليها بالماء الكافي (٤.٢ لتر) لإكمال الغسيل الكلوي الطبيعي.</p>
+                    </div>
+                    <div class="p-4 rounded-xl border pink-border-subtle bg-white pink-shadow-sm">
+                        <span class="text-xs font-bold text-brandGold block mb-1">الأسبوع ٣ - ٤ (الالتهام الذاتي)</span>
+                        <p class="text-[11px] text-brandBlack/80 font-bold leading-normal">تدخلين مرحلة تفكيك البروتينات والترسبات الالتهابية القديمة في الركبتين والظهر. تشعرين تدريجياً بخفة حركية ملحوظة بفضل زوال عبء الوزن الثقيل.</p>
+                    </div>
+                    <div class="p-4 rounded-xl border pink-border-subtle bg-white pink-shadow-sm">
+                        <span class="text-xs font-bold text-brandPink block mb-1">الأسبوع ٥ - ٦ (تجديد البناء)</span>
+                        <p class="text-[11px] text-brandBlack/80 font-bold leading-normal">ارتفاع ذروة هرمون النمو (HGH) يسرع إعادة بناء العضلات المحيطة بالمفاصل لحمايتها مستقبلاً، مع الاستعداد لكسر صيام تدريجي آمن وخالٍ من الصدمات المعوية.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 4: تعلم وعظامي -->
+        <div id="view-learn" class="app-view hidden space-y-6">
+            
+            <div class="bg-white rounded-2xl p-8 border pink-border-subtle pink-shadow-sm space-y-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-md md:text-lg text-brandBlack font-bold">الموسوعة الطبية وعظام حلويات بوسي الفولاذية</h2>
+                        <p class="text-xs text-brandBlack/70 font-bold mt-1">تفسيرات كيميائية حيوية دقيقة تشرح لكِ ميكانيكية التحول الفسيولوجي داخل خلاياكِ</p>
+                    </div>
+                    <!-- Real-time Filter/Search Input -->
+                    <div class="relative max-w-xs w-full">
+                        <input type="text" id="article-search" oninput="filterArticles(this.value)" class="w-full pl-3 pr-9 py-2 rounded-xl border border-brandPink/30 focus:border-brandPink focus:outline-none text-xs font-bold text-brandBlack placeholder-brandBlack/45" placeholder="ابحثي في الموسوعة...">
+                        <i data-lucide="search" class="w-4 h-4 text-brandBlack/55 absolute right-3 top-2.5"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-6" id="articles-container">
+                    <!-- Article 1 -->
+                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="كلى غدد بوليك حمض يوريك عظام مفاصل">
+                        <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">كيمياء الكلى والغدد الصماء</span>
+                        <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                            <i data-lucide="bone" class="w-4 h-4 text-brandPink"></i>
+                            لماذا تؤلمني عظامي ومفاصلي في بداية الكيتوزية؟ (ميكانيكية اليوريك أسيد)
+                        </h3>
+                        <p class="text-xs text-brandBlack/90 leading-relaxed font-semibold">
+                            عندما يبدأ الكبد في تكسير الدهون لإنتاج الكيتونات، يطرأ تنافس حاد في الكلى بين الكيتونات وحمض البوليك (Uric Acid) على نفس بوابات الإفراز العضوي في الكليتين (Organic Anion Transporters OAT1/OAT3). 
+                            <br><br>
+                            الكلى تعطي الأولوية فسيولوجياً لإخراج الكيتونات أولاً لحماية الدم من التيسير، مما يؤدي إلى احتباس مؤقت لحمض البوليك في مجرى الدم وترسبه في مفاصل الركبتين والظهر التي تعاني أصلاً من التحميل الميكانيكي لوزنكِ (١٢٠ كجم). 
+                            <b class="text-brandPink block mt-2">العلاج الطبي الحتمي: شرب ٤.٢ لتر من الماء الفسيولوجي بملح الهيمالايا لزيادة معامل تصريف الكلى وتنظيف المفاصل لحظياً.</b>
+                        </p>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="سترونج كالسيوم كربونات امتصاص صيام معدة">
+                        <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">بيولوجيا الامتصاص الهضمي</span>
+                        <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-brandPink"></i>
+                            لماذا سترات الكالسيوم بالتحديد؟ ولماذا تفشل الكربونات أثناء الصيام?
+                        </h3>
+                        <p class="text-xs text-brandBlack/90 leading-relaxed font-semibold">
+                            أثنا الصيام الطويل، تفرغ المعدة تماماً من الطعام وتدخل الغدد المعدية في سكون فسيولوجي تام، مما يؤدي لغياب حمض الهيدروكلوريك (Achlorhydria) وارتفاع الرقم الهيدروجيني (pH) داخل المعدة.
+                            <br><br>
+                            صيغة الكالسيوم كربونات الشائعة تتطلب وسطاً حمضياً شديداً (pH أقل من ٢) لتفكيك رابطتها وإذابتها لتمكين الامتصاص. وبالتالي، تناول كربونات الكالسيوم أثناء الصيام يمر في الأمعاء كالحجر دون أي امتصاص وبدون أي فائدة لمفاصلكِ. 
+                            <b class="text-brandPink block mt-2">في المقابل، تتميز صيغة سترات الكالسيوم (Calcium Citrate) برابطة مخلبية سهلة التفكك، تمتص بكفاءة فائقة وتامة حتى في غياب أحماض المعدة، مما يحمي مصفوفة عظامكِ من التآكل لتعويض المعادن.</b>
+                        </p>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="article-card p-6 rounded-2xl border pink-border-subtle hover:border-brandPink/50 transition space-y-3 bg-white pink-shadow-sm" data-keywords="مغنيسيوم جليسينات أوكسيد تشنجات سمانة ساق تقلصات">
+                        <span class="inline-block bg-brandPink/5 text-brandPink text-[10px] font-bold px-2.5 py-1 rounded-full border pink-border-subtle">الجهاز العصبي العضلي</span>
+                        <h3 class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                            <i data-lucide="activity" class="w-4 h-4 text-brandPink"></i>
+                            المغنيسيوم جليسينات مقابل الأوكسيد: منع تشنجات عضلات السمانة بالليل
+                        </h3>
+                        <p class="text-xs text-brandBlack/90 leading-relaxed font-semibold">
+                            المغنيسيوم أوكسيد أو السيتريت يملكان ميكانيكية امتصاص تسحب السوائل لجدار الأمعاء (Osmotic Laxative)، مما قد يسبب لكِ إسهالاً مجهداً ويفقدكِ سوائل ثمينة أثناء الصيام. 
+                            <br><br>
+                            أما صيغة المغنيسيوم جليسينات (Magnesium Glycinate) فهي مرتبطة بالحمض الأميني الجليسين (Glycine) الذي يمتص مباشرة عبر بوابات الأحماض الأمينية دون إحداث أي خلل معوي. 
+                            <b class="text-brandPink block mt-2">الجليسين يعمل كناقل عصبي مهدئ للجهاز العصبي المركزي (Inhibitory Neurotransmitter)، مما يهدئ الإشارات العصبية العضلية الذاهبة لعضلات الساقين ويمنع تماماً التشنجات والتقلصات الليلية المزعجة.</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 5: ملفي -->
+        <div id="view-profile" class="app-view hidden space-y-6">
+            
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-full bg-brandPink flex items-center justify-center text-white text-lg font-bold pink-shadow">
+                        ح
+                    </div>
+                    <div>
+                        <h2 class="text-xs md:text-sm text-brandBlack font-bold">بطلة منصة حلويات بوسي الفسيولوجية</h2>
+                        <p class="text-[11px] text-brandBlack/70 font-bold">عضوية نشطة في بروتوكول التحول الفسيولوجي المتقدم</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                    <div class="p-4 rounded-xl bg-white border pink-border-subtle text-center pink-shadow-sm">
+                        <span class="text-2xl font-bold text-brandBlack" id="profile-total-hours">١٨٢</span>
+                        <p class="text-[10px] text-brandBlack/80 mt-1 font-bold">إجمالي الساعات</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white border pink-border-subtle text-center pink-shadow-sm">
+                        <span class="text-2xl font-bold text-brandBlack" id="profile-longest-fast">١٣٦</span>
+                        <p class="text-[10px] text-brandBlack/80 mt-1 font-bold">أطول صيام منفرد</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white border pink-border-subtle text-center pink-shadow-sm">
+                        <span class="text-2xl font-bold text-brandBlack" id="profile-committed-days">١٦</span>
+                        <p class="text-[10px] text-brandBlack/80 mt-1 font-bold">أيام الالتزام التام</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white border border-brandPink text-center pink-shadow-sm">
+                        <span class="text-2xl font-bold text-brandPink" id="profile-streak-days">٩</span>
+                        <p class="text-[10px] text-brandBlack/80 mt-1 font-bold">أيام الالتزام المتتالي</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DYNAMIC WEIGHT GRAPH -->
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs md:text-sm font-bold text-brandBlack">لوحة المراقبة الرسومية لمسار الوزن</h3>
+                        <p class="text-[10px] text-brandBlack/70 font-bold">تتبع رسومي تفاعلي لرحلة التخلص من الـ ١٢٠ كجم وصولاً لمفاصل الـ ٩٠ الفولاذية</p>
+                    </div>
+                    <span class="text-xs font-bold text-brandPink bg-brandPink/5 px-2 py-1 rounded-full border pink-border-subtle" id="chart-weight-diff">-١.١ كجم</span>
+                </div>
+                
+                <!-- SVG Visual Chart Box -->
+                <div class="relative w-full border pink-border-subtle rounded-xl p-4 bg-brandPink/5 flex items-center justify-center">
+                    <svg id="weight-svg-chart" viewBox="0 0 500 150" class="w-full h-36">
+                        <!-- Horizontal grid lines -->
+                        <line x1="10" y1="20" x2="490" y2="20" stroke="rgba(255,145,164,0.15)" stroke-dasharray="4" />
+                        <line x1="10" y1="55" x2="490" y2="55" stroke="rgba(255,145,164,0.15)" stroke-dasharray="4" />
+                        <line x1="10" y1="90" x2="490" y2="90" stroke="rgba(255,145,164,0.15)" stroke-dasharray="4" />
+                        <line x1="10" y1="125" x2="490" y2="125" stroke="rgba(255,145,164,0.15)" stroke-dasharray="4" />
+
+                        <!-- Gold Target Line -->
+                        <line x1="10" y1="125" x2="490" y2="125" stroke="#D4AF37" stroke-width="2" />
+                        <text x="440" y="120" fill="#D4AF37" class="text-[8px] font-bold">مستهدف الـ ٩٠ كجم</text>
+
+                        <!-- Dynamically drawn path from JavaScript -->
+                        <path id="chart-slope-path" d="" fill="none" stroke="#FF91A4" stroke-width="3.5" stroke-linecap="round"/>
+                        <g id="chart-points-group"></g>
+                    </svg>
+                </div>
+                <div class="flex justify-center">
+                    <button onclick="openLogWeightModal()" class="px-4 py-2 bg-brandPink text-white text-xs font-bold rounded-xl shadow-md hover:bg-brandPink/90 transition flex items-center gap-1.5 focus:outline-none">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                        تسجيل وزن وتحديث المنحنى
+                    </button>
+                </div>
+                <p class="text-[10px] text-brandBlack/70 leading-relaxed font-semibold text-center">
+                    * يقوم المنحنى في الأعلى بتحديث ميله تلقائياً مع كل قياس وزن جديد تقومين بإدخاله!
+                </p>
+            </div>
+
+            <!-- BACKUP & DATA MANAGEMENT -->
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack">إدارة البيانات والنسخ الاحتياطي</h3>
+                <p class="text-[11px] text-brandBlack/80 font-semibold leading-relaxed">بما أن التطبيق يعمل بشكل مستقل على جهازكِ، يمكنكِ تصدير بياناتكِ أو استعادتها لحماية استثماركِ وصبركِ طوال الرحلة.</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="exportAppData()" class="py-2.5 rounded-xl border border-brandPink hover:bg-brandPink/5 text-xs font-bold text-brandPink flex items-center justify-center gap-1.5 focus:outline-none">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        نسخ احتياطي للبيانات
+                    </button>
+                    <button onclick="triggerImportModal()" class="py-2.5 rounded-xl border border-brandGold hover:bg-brandGold/5 text-xs font-bold text-brandGold flex items-center justify-center gap-1.5 focus:outline-none">
+                        <i data-lucide="upload" class="w-4 h-4"></i>
+                        استيراد البيانات السابقة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Custom Interactive Badges -->
+            <div class="bg-white rounded-2xl p-6 border pink-border-subtle pink-shadow-sm space-y-4">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack">الأوسمة والإنجازات الفسيولوجية الخاصة بكِ</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    
+                    <!-- 192 Hours Badge -->
+                    <div id="badge-card-192" class="p-4 rounded-xl border pink-border-subtle transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-white pink-shadow-sm">
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                                <i data-lucide="award" class="w-4 h-4 text-brandPink/50" id="badge-icon-192"></i>
+                                وسام الـ ١٩٢ ساعة الصارم
+                            </span>
+                            <p class="text-[10px] text-brandBlack/80 font-bold" id="badge-desc-192">يفتح تلقائياً عند إتمام ١٩٢ ساعة صيام متكاملة لثباتكِ الخارق في مفاصلكِ وعظامكِ.</p>
+                        </div>
+                        <div class="mt-4">
+                            <div class="w-full bg-brandPink/10 h-1.5 rounded-full overflow-hidden mb-2">
+                                <div id="badge-progress-192" class="bg-brandPink h-full" style="width: 0%"></div>
+                            </div>
+                            <span class="text-[9px] text-brandBlack/85 font-bold" id="badge-status-text-192">جاري التحقق...</span>
+                            <button id="badge-claim-btn-192" onclick="claimBadge('192')" class="hidden w-full mt-2 py-2 text-[10px] font-bold text-white bg-brandPink rounded-lg shadow hover:bg-brandPink/90 transition focus:outline-none">تحرير الوسام الذهبي</button>
+                        </div>
+                    </div>
+
+                    <!-- Steel Bones Badge -->
+                    <div id="badge-card-bones" class="p-4 rounded-xl border pink-border-subtle transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-white pink-shadow-sm">
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                                <i data-lucide="shield" class="w-4 h-4 text-brandPink/50" id="badge-icon-bones"></i>
+                                وسام العظام الفولاذية
+                            </span>
+                            <p class="text-[10px] text-brandBlack/80 font-bold">قومي بتسجيل تناول مكملات الكالسيوم وفيتامين د٣ والمغنيسيوم لليوم لفك القفل.</p>
+                        </div>
+                        <div class="mt-4">
+                            <div class="w-full bg-brandPink/10 h-1.5 rounded-full overflow-hidden mb-2">
+                                <div id="badge-progress-bones" class="bg-brandPink h-full" style="width: 0%"></div>
+                            </div>
+                            <span class="text-[9px] text-brandBlack/85 font-bold" id="badge-status-text-bones">مغلق مؤقتاً</span>
+                            <button id="badge-claim-btn-bones" onclick="claimBadge('bones')" class="hidden w-full mt-2 py-2 text-[10px] font-bold text-white bg-brandPink rounded-lg shadow hover:bg-brandPink/90 transition focus:outline-none">تحرير الوسام الذهبي</button>
+                        </div>
+                    </div>
+
+                    <!-- Water Hydration Badge -->
+                    <div id="badge-card-water" class="p-4 rounded-xl border pink-border-subtle transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-white pink-shadow-sm">
+                        <div class="space-y-1.5">
+                            <span class="text-xs font-bold text-brandBlack flex items-center gap-1.5">
+                                <i data-lucide="droplet" class="w-4 h-4 text-brandPink/50" id="badge-icon-water"></i>
+                                وسام نقاء الكليتين والخلايا
+                            </span>
+                            <p class="text-[10px] text-brandBlack/80 font-bold">تجاوزي مستهدفكِ المائي اليومي البالغ ٤.٢ لتر لتطهير الكلى وتخفيف ترسب حمض البوليك.</p>
+                        </div>
+                        <div class="mt-4">
+                            <div class="w-full bg-brandPink/10 h-1.5 rounded-full overflow-hidden mb-2">
+                                <div id="badge-progress-water" class="bg-brandPink h-full" style="width: 0%"></div>
+                            </div>
+                            <span class="text-[9px] text-brandBlack/85 font-bold" id="badge-status-text-water">مغلق مؤقتاً</span>
+                            <button id="badge-claim-btn-water" onclick="claimBadge('water')" class="hidden w-full mt-2 py-2 text-[10px] font-bold text-white bg-brandPink rounded-lg shadow hover:bg-brandPink/90 transition focus:outline-none">تحرير الوسام الذهبي</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t pink-border-subtle shadow-lg z-50">
+        <div class="max-w-md mx-auto h-20 flex items-center justify-around font-bold">
+            
+            <button onclick="switchToTab('today')" id="nav-today" class="nav-item flex flex-col items-center justify-center gap-1.5 text-brandPink font-bold focus:outline-none">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span class="text-[11px] font-bold">يومنا</span>
+            </button>
+
+            <button onclick="switchToTab('fasting')" id="nav-fasting" class="nav-item flex flex-col items-center justify-center gap-1.5 text-brandBlack/80 hover:text-brandPink font-bold focus:outline-none">
+                <i data-lucide="timer" class="w-5 h-5"></i>
+                <span class="text-[11px] font-bold">الصيام</span>
+            </button>
+
+            <button onclick="switchToTab('plans')" id="nav-plans" class="nav-item flex flex-col items-center justify-center gap-1.5 text-brandBlack/80 hover:text-brandPink font-bold focus:outline-none">
+                <i data-lucide="compass" class="w-5 h-5"></i>
+                <span class="text-[11px] font-bold">خطتي</span>
+            </button>
+
+            <button onclick="switchToTab('learn')" id="nav-learn" class="nav-item flex flex-col items-center justify-center gap-1.5 text-brandBlack/80 hover:text-brandPink font-bold focus:outline-none">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+                <span class="text-[11px] font-bold">التعلم وعظامي</span>
+            </button>
+
+            <button onclick="switchToTab('profile')" id="nav-profile" class="nav-item flex flex-col items-center justify-center gap-1.5 text-brandBlack/80 hover:text-brandPink font-bold focus:outline-none">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span class="text-[11px] font-bold">أنا</span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- Modal 1: كسر الصيام الآمن (Refeeding Launch) -->
+    <div id="modal-still-fasting" class="hidden fixed inset-0 bg-[#FF91A4]/10 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center space-y-6 border-2 border-brandPink pink-shadow animate-fade-in">
+            <div class="w-16 h-16 rounded-full bg-brandPink/5 text-brandPink flex items-center justify-center mx-auto border pink-border-subtle">
+                <i data-lucide="bell" class="w-8 h-8 text-brandPink"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack">هل ترغبين في إنهاء صيامكِ الحالي؟</h3>
+                <p class="text-xs text-brandBlack/80 font-bold leading-relaxed">
+                    إن بروتوكول الصيام المطور في منصة حلويات بوسي مصمم لتوفير الأمان وحماية المفاصل من ثقل ميزان الـ ١٢٠ كجم. يمكنكِ كسر الصيام الآن لتسجيل الساعات بنجاح وتفعيل إرشادات التغذية التدريجية.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="confirmFasting(true)" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow focus:outline-none">
+                    نعم، أريد كسر الصيام
+                </button>
+                <button onclick="confirmFasting(false)" class="flex-1 py-3 rounded-xl bg-white border border-brandPink hover:bg-brandPink/5 text-brandBlack font-bold text-xs transition duration-200 focus:outline-none">
+                    لا، سأستمر بالصيام
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Modal -->
+    <div id="modal-celebration" class="hidden fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center space-y-6 border-4 border-brandGold pink-shadow">
+            <div class="w-20 h-20 rounded-full bg-brandGold text-white flex items-center justify-center mx-auto animate-bounce shadow-lg">
+                <i data-lucide="crown" class="w-10 h-10 text-white"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-md md:text-lg font-bold text-brandBlack text-brandGold">إنجاز رائع وبطولي!</h3>
+                <p class="text-xs text-brandBlack/85 leading-relaxed font-bold" id="celebration-badge-text">
+                    لقد قمتِ بفك تشفير هذا وسام الفسيولوجي المذهل بفضل ثباتكِ العالي اليوم وحمايتكِ لجهازكِ الحركي وعظامكِ مع بروتوكول حلويات بوسي الفسيولوجي!
+                </p>
+            </div>
+            <button onclick="closeCelebrationModal()" class="w-full py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition shadow focus:outline-none">
+                استكمال الرحلة الرائعة
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal 2: تعديل ميقات ومستهدف الصيام النشط -->
+    <div id="modal-edit-fasting" class="hidden fixed inset-0 bg-[#FF91A4]/15 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-right space-y-5 border-2 border-brandPink pink-shadow">
+            <div class="flex items-center justify-between border-b pink-border-subtle pb-3">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack flex items-center gap-1.5">
+                    <i data-lucide="calendar" class="w-4 h-4 text-brandPink"></i>
+                    تعديل ميقات ومستهدف الصيام
+                </h3>
+                <button onclick="closeEditFastingModal()" class="text-xs text-brandBlack/50 hover:text-brandPink focus:outline-none">إغلاق</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">تاريخ البدء:</label>
+                    <input type="date" id="edit-fast-date" class="w-full p-2.5 rounded-xl border border-brandPink/40 text-xs font-bold text-brandBlack focus:border-brandPink focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">وقت البدء:</label>
+                    <input type="time" id="edit-fast-time" class="w-full p-2.5 rounded-xl border border-brandPink/40 text-xs font-bold text-brandBlack focus:border-brandPink focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">المستهدف بالساعات:</label>
+                    <input type="number" id="edit-fast-target" min="1" max="1000" class="w-full p-2.5 rounded-xl border border-brandPink/40 text-xs font-bold text-brandBlack focus:border-brandPink focus:outline-none">
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="saveFastingEdits()" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow focus:outline-none">
+                    حفظ التعديلات
+                </button>
+                <button onclick="closeEditFastingModal()" class="flex-1 py-3 rounded-xl bg-white border border-brandPink/30 text-brandBlack font-bold text-xs transition focus:outline-none">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: تأكيد تصفير عداد الصيام -->
+    <div id="modal-reset-confirm" class="hidden fixed inset-0 bg-[#111111]/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center space-y-6 border-2 border-brandPink pink-shadow">
+            <div class="w-16 h-16 rounded-full bg-brandPink/5 text-brandPink flex items-center justify-center mx-auto border pink-border-subtle">
+                <i data-lucide="rotate-ccw" class="w-8 h-8 text-brandPink"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack">هل ترغبين في تصفير العداد؟</h3>
+                <p class="text-xs text-brandBlack/80 font-bold leading-relaxed">
+                    سيتم إلغاء سجل الصيام النشط حالياً وإعادة العداد إلى الصفر لتتمكني من بدء ميقات جديد. هذا الإجراء لن يؤثر على سجل ساعات الصيام التاريخية المحفوظة في ملفكِ الشخصي.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="confirmResetFasting()" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow focus:outline-none">
+                    تأكيد التصفير
+                </button>
+                <button onclick="closeResetConfirmModal()" class="flex-1 py-3 rounded-xl bg-white border border-brandPink/30 text-brandBlack font-bold text-xs transition focus:outline-none">
+                    تراجع
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: تسجيل وزن جديد لتحديث منحنى الـ SVG -->
+    <div id="modal-log-weight" class="hidden fixed inset-0 bg-[#FF91A4]/15 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-right space-y-5 border-2 border-brandPink pink-shadow animate-fade-in">
+            <div class="flex items-center justify-between border-b pink-border-subtle pb-3">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack flex items-center gap-1.5">
+                    <i data-lucide="scale" class="w-4 h-4 text-brandPink"></i>
+                    تسجيل قياس وزن جديد
+                </h3>
+                <button onclick="closeLogWeightModal()" class="text-xs text-brandBlack/50 hover:text-brandPink focus:outline-none">إغلاق</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">الوزن بالكيلوجرام (كجم):</label>
+                    <input type="number" id="weight-log-input" step="0.1" value="118.9" class="w-full p-2.5 rounded-xl border border-brandPink/40 text-xs font-bold text-brandBlack focus:border-brandPink focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold text-brandBlack/80 block mb-1">تاريخ القياس:</label>
+                    <input type="text" id="weight-date-input" class="w-full p-2.5 rounded-xl border border-brandPink/40 text-xs font-bold text-brandBlack focus:border-brandPink focus:outline-none" placeholder="مثال: ١٠ يونيو">
+                </div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="saveNewWeightLog()" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition duration-200 shadow focus:outline-none">
+                    تحديث وحفظ
+                </button>
+                <button onclick="closeLogWeightModal()" class="flex-1 py-3 rounded-xl bg-white border border-brandPink/30 text-brandBlack font-bold text-xs transition focus:outline-none">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: استيراد البيانات الاحتياطية -->
+    <div id="modal-import-data" class="hidden fixed inset-0 bg-[#111111]/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-right space-y-5 border-2 border-brandPink pink-shadow">
+            <div class="flex items-center justify-between border-b pink-border-subtle pb-3">
+                <h3 class="text-xs md:text-sm font-bold text-brandBlack flex items-center gap-1.5">
+                    <i data-lucide="upload" class="w-4 h-4 text-brandGold"></i>
+                    استيراد البيانات
+                </h3>
+                <button onclick="closeImportModal()" class="text-xs text-brandBlack/50 hover:text-brandPink focus:outline-none">إغلاق</button>
+            </div>
+            <p class="text-[10px] text-brandBlack/80 font-bold leading-normal">قومي بلصق الرمز الاحتياطي الذي قمتِ بتصديره سابقاً في المربع أدناه لاستعادة جميع قراءاتكِ فوراً:</p>
+            <textarea id="import-data-area" rows="6" class="w-full p-3 rounded-xl border border-brandPink/30 text-[9px] font-mono focus:border-brandPink focus:outline-none" placeholder="الصقي الكود هنا..."></textarea>
+            <div class="flex gap-3">
+                <button onclick="applyImportData()" class="flex-1 py-3 rounded-xl bg-brandPink hover:bg-brandPink/90 text-white font-bold text-xs transition shadow focus:outline-none">
+                    استيراد الآن
+                </button>
+                <button onclick="closeImportModal()" class="flex-1 py-3 rounded-xl bg-white border border-brandPink/30 text-brandBlack font-bold text-xs transition focus:outline-none">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Block for Intelligent Control -->
+    <script>
+        const STORAGE_KEY = 'boosy_sweets_physiological_state_v3';
+        const apiKey = ""; // API key is provided at runtime by the environment
+
+        let appState = {
+            initialWeight: 120.0,
+            currentWeight: 118.9,
+            weightHistory: [
+                { date: '٢٩ مايو', weight: 120.0 },
+                { date: '٠٢ يونيو', weight: 119.5 },
+                { date: '٠٧ يونيو', weight: 118.9 }
+            ],
+            totalFastingHours: 182,
+            longestFast: 136,
+            totalCommittedDays: 16,
+            streakDays: 9,
+            fastActive: true,
+            fastStartTime: null,
+            fastTargetHours: 240,
+            fastType: 'water-keto',
+            loggedWaterMl: 600,
+            journalText: '',
+            supplements: {
+                calcium: false,
+                vitD3: false,
+                himalaya: false,
+                magnesium: false
+            },
+            claimedBadges: {
+                badge192: false,
+                badgeBones: false,
+                badgeWater: false
+            },
+            refeedingActive: false,
+            refeedingStartTime: null,
+            widgetVisibility: {
+                'widget-water': true,
+                'widget-weight': true,
+                'widget-supp': true,
+                'widget-coach': true,
+                'widget-journal': true
+            },
+            phoneNotificationsEnabled: false,
+            lastNotificationLog: {}
+        };
+
+        const targetWaterMl = 4200;
+        let isTimerRunning = true;
+        let timerInterval;
+        let refeedingInterval;
+        let backgroundReminderInterval;
+
+        const timelineData = {
+            1: {
+                title: "اليوم الأول: هبوط الأنسولين وتدشين استهلاك الجليكوجين",
+                hours: "الساعات ١ - ٢٤",
+                advice: "اليوم تبدأ مخازن السكر المباشرة في التلاشي. مفاصلكِ وركبتيكِ ما زالتا تعانيان من ثقل الـ ١٢٠ كجم؛ لذا تجنبي الحركة العنيفة والتزمي بالراحة الحركية.",
+                steps: [
+                    { time: "ساعة ١ - ٦", desc: "ارتفاع منسوب الأنسولين في الدم جراء الهضم الأخير للنشويات، ثم هبوطه لتبدأ الإشارة الفسيولوجية لتشغيل الكيتوزية." },
+                    { time: "ساعة ٧ - ١٢", desc: "الكبد يطلق الجليكوجين المخزن للحفاظ على تدفق الجلوكوز للمخ. تشعرين بنشاط تدريجي متزن." },
+                    { time: "ساعة ١٣ - ١٨", desc: "نضوب ٨٠% من الجليكوجين، الكبد يبدأ في تعبئة الأحماض الدهنية وتجهيز خلايا المفاصل للسباحة في الوقود الكيتوني النظيف." },
+                    { time: "ساعة ١٩ - ٢٤", desc: "بدء تخلص الخلايا من السوائل المحتبسة المرتبطة بالأنسولين، الضغط الميكانيكي الأولي يتراجع قليلاً عن فقرات الظهر." }
+                ]
+            },
+            2: {
+                title: "اليوم الثاني: الالتحام الكيتوني وبداية ذوبان الكتل العميقة",
+                hours: "الساعات ٢٥ - ٤٨",
+                advice: "هنا يشتد التحدي النفسي وتصريف اليوريك أسيد يبدأ بالتنافس في الكلى. ركبتيكِ تشعران بضغط طفيف؛ تناول المياه الفسيولوجية بملح هيمالايا يحميكِ فوراً.",
+                steps: [
+                    { time: "ساعة ٢٥ - ٣٢", desc: "تجاوز السكر بالكامل، وخلايا المخ تبدأ بامتصاص جزيئات الكيتون كمصدر طاقة بديل ونقي بنسبة ١٠٠%." },
+                    { time: "ساعة ٣٣ - ٤٠", desc: "تراجع السوائل يؤدي لخسارة أولية في الوزن الميكانيكي، مما يخفف الحمل عن مفاصل الحوض والفقرات القطنية." },
+                    { time: "ساعة ٤١ - ٤٨", desc: "بدء التطهير والالتهام الذاتي الفعال (Autophagy) لتنظيف الخلايا المنهكة والبروتينات الالتهابية المترسبة حول الركبتين." }
+                ]
+            },
+            3: {
+                title: "اليوم الثالث: تجدد نخاع العظام ومستقبلات الأنسولين",
+                hours: "الساعات ٤٩ - ٧٢",
+                advice: "اليوم تبدأ مفاصلكِ في استقبال المكملات بامتصاص مذهل. سترات الكالسيوم بالتحديد مضافة لرحلتكِ لحمايتها العميقة من الهشاشة.",
+                steps: [
+                    { time: "ساعة ٤٩ - ٥٦", desc: "هرمون النمو (HGH) يسجل ارتفاعاً بنسبة ٣٠0% لحماية كتلة العضلات والأربطة المحيطة بمفاصل ركبتكِ المجهدة." },
+                    { time: "ساعة ٥٧ - ٦٤", desc: "إعادة بناء مستقبلات الخلايا للأنسولين لرفع كفاءة الأيض وتفتيت الدهون الحشوية العميقة المحيطة بالبطن والأحشاء." },
+                    { time: "ساعة ٦٥ - ٧٢", desc: "تنظيف الكبد والأوعية الشريانية من الكوليسترول المؤكسد والتكلسات الجيرية القديمة، وضخ دماء محملة بالأكسجين للغضاريف." }
+                ]
+            },
+            4: {
+                title: "اليوم الرابع إلى العاشر: إذابة الكتل الدهنية واستقرار الطاقة",
+                hours: "الساعات ٧٣ - ٢٤٠",
+                advice: "أنتِ الآن في الكيتوزية العميقة. مفاصلكِ وغضاريف ركبتيكِ مسترخية وخفيفة بفضل تصريف المياه والالتهابات. التزمي بالبوتاسيوم والمغنيسيوم جليسينات.",
+                steps: [
+                    { time: "ساعة ٧٣ - ١٢٠", desc: "تجديد كامل لخلايا الدم البيضاء في نخاع العظام، وبناء جهاز مناعي فتي خالٍ من العوامل المسببة لآلام المفاصل المزمنة." },
+                    { time: "ساعة ١٢١ - ١٨٠", desc: "انكماش مطرد للكتل الدهنية العميقة التي كانت تحمل عبئاً ميكانيكياً مفرطاً على الركبة (كل ١ كجم يزول يزيل ٤ كجم ضغط حركي)." },
+                    { time: "ساعة ١٨١ - ٢٤٠", desc: "ارتفاع الكيتونات لمستويات مستقرة تماماً تغذي خلايا الدماغ وتمنحكِ صفاءً وارتياحاً نفسياً وعصبياً غير مسبوق." }
+                ]
+            },
+            11: {
+                title: "اليوم الحادي عشر إلى العشرين: الاستشفاء الهيكلي وإعادة بناء الغضاريف",
+                hours: "الساعات ٢٤١ - ٤٨٠",
+                advice: "تراجع آلام الظهر تماماً بفضل تصريف السوائل المحتقنة حول الغضاريف. عظامكِ تستفيد الآن بقمة امتصاصها لسترات الكالسيوم.",
+                steps: [
+                    { time: "ساعة ٢٤١ - ٣٢٠", desc: "تطهير الأوعية الدموية العميقة، وتحسن هائل في مرونة الشرايين، وخلايا المفاصل تتلقى كهرومغناطيسية مستقرة للأملاح." },
+                    { time: "ساعة ٣٢١ - ٤٠٠", desc: "إفراز الخلايا الجذعية (Stem Cells) النشط لترميم الأوتار والأنسجة الرخوة التي تضررت سابقاً من ثبات ميزان الـ ١٢٠ كجم." },
+                    { time: "ساعة ٤٠١ - ٤٨٠", desc: "ثبات هرموني ممتاز وتوازن نفسي خارق، تراجع تام للرغبة في تناول النشويات وتكيف مطلق مع طاقة الدهون النظيفة." }
+                ]
+            },
+            21: {
+                title: "اليوم الحادي والعشرون إلى الثلاثين: كفاءة الأيض والتحول الهيكلي",
+                hours: "الساعات ٤٨١ - ٧٢٠",
+                advice: "مظهركِ الخارجي ومقاساتكِ تتغير كلياً بفضل تراجع الدهون العميقة حول الأحشاء والبطن. ركبتيكِ تشعران براحة حركية مبهرة.",
+                steps: [
+                    { time: "ساعة ٤٨١ - ٥٦٠", desc: "انكماش ملحوظ في مقاسات الحوض والخصر، مما يعيد مركز ثقل جسدكِ لموقع هندسي متزن لا يضغط على الفقرات القطنية." },
+                    { time: "ساعة ٥٦١ - ٦٤٠", desc: "انخفاض مذهل في الكوليسترول الضار والشحوم الثلاثية لتأمين حماية قلبية وشريانية فائقة التطور لجسدكِ الشاب." },
+                    { date: "ساعة ٦٤١ - ٧٢٠", desc: "استقرار هرمونات الكورتيزول (التوتر) والأنسولين، مما يمنح عقلكِ ونواقل السيروتونين العصبية استرخاء وهدوء تامين." }
+                ]
+            },
+            31: {
+                title: "اليوم الحادي والثلاثون إلى الأربعين: التجدد الخلوي النهائي والهيكل الفولاذي",
+                hours: "الساعات ٧٢١ - ٩٦٠",
+                advice: "شارفتِ على خط النهاية ونصر تاريخي لركبتيكِ وعظامكِ بملامسة هدف الـ ٩٠ كجم! استعدي لبروتوكول كسر صيام تدريجي وآمن.",
+                steps: [
+                    { time: "ساعة ٧٢١ - ٨٠٠", desc: "وصول كفاءة حرق الدهون الكيتونية للذروة المطلقة، وخلايا جسدكِ تجدد شبابها وحيويتها ومفاصلكِ مرنة وقوية كالفولاذ." },
+                    { time: "ساعة ٨٠١ - ٨٨٠", desc: "تجدد غشاء المعدة والأمعاء الداخلي بالكامل، وتأهب إنزيمات الامتصاص لاستقبال مغذيات صحية جديدة وآمنة." },
+                    { time: "ساعة ٨٨١ - ٩٦٠", desc: "اكتمال إذابة الدهون الحشوية العميقة، ميزانكِ مريح ومفاصلكِ شابة خفيفة ومستعدة لبدء نمط حركي وصحي فاخر ومستدام!" }
+                ]
+            }
+        };
+
+        const coachDatabase = {
+            'joint-pain': "آلام مفاصل ركبتكِ وعظامكِ حالياً هي أمر علمي مفسر تماماً في الطب الفسيولوجي! الكيتونات أثناء تصريفها العضوي في الكلى تتنافس مع حمض البوليك (Uric Acid) على نفس بوابات الإخراج (OAT1/OAT3). يؤدي ذلك إلى احتباس مؤقت لحمض البوليك في الدم وترسبه في مفاصل الركبتين والظهر التي تعاني من ثقل وزن الـ ١٢٠ كجم. <b class='text-brandPink block mt-2 font-bold'>العلاج الطبي السليم: اشربي الآن كوبين من الماء الفسيولوجي بملح الهيمالايا، والتزمي بتناول سترات الكالسيوم مع فيتامين د٣ لترميم المفاصل فوراً.</b>",
+            'boredom-hunger': "هذا ليس جوعاً حقيقياً للمعدة يا فنانة، بل هو 'حنين هرموني سلوكي' ناتج عن رغبة الدماغ في إفراز الدوبامين للتغلب على الملل أو قلق الميزان. الجوع الفسيولوجي الحقيقي يتصاعد تدريجياً ويزول بشرب المياه. <b class='text-brandPink block mt-2 font-bold'>العلاج السلوكي المعتمد: تناولي رشفات بطيئة من الماء الفسيولوجي الدافئ مع ملح الهيمالايا، وخذي نفساً عميقاً من البطن، واشغلي عقلكِ بقراءة خارطة الأيام الـ ٤٠ لتخطي هذه العقبة بنجاح تام وحماية صيامكِ!</b>",
+            'low-energy': "هبوط الطاقة المفاجئ يعني تخلص الكلى السريع من الصوديوم والبوتاسيوم نتيجة انخفاض مستويات الأنسولين، مما يسبب خللاً مؤقتاً في كهرباء الخلايا العضلية والعصبية. <b class='text-brandPink block mt-2 font-bold'>الحل الفوري الفعال: أذيبي ربع ملعقة صغيرة من ملح الهيمالايا في كوب دافئ من الماء الفسيولوجي واشربيه فوراً ليعيد شحن طاقتكِ وتركيزكِ في دقائق معدودة وبأمان تام.</b>",
+            'weight-panic': "ثبات الوزن على الميزان هو وهم فسيولوجي شائع! عندما يذيب الجسم كتل الدهون العميقة والمكثفة، تخزن الخلايا الدهنية المنكمشة كمية من السوائل مؤقتاً للحفاظ على شكلها الهيكلي (احتباس الماء المؤقت). فجأة وبدون مقدمات، يتم تصريف هذه السوائل لتلاحظي انخفاضاً صاعقاً ومفاجئاً في الميزان بمقدار ٢ كجم في ليلة واحدة! <b class='text-brandPink block mt-2 font-bold'>اطمني تماماً مع بروتوكولات منصة حلويات بوسي، حرق الدهون مستمر فسيولوجياً طالما واصلتِ الصيام بثقة وراحة.</b>"
+        };
+
+        // Utility: Convert English digits to Arabic-Indic digits
+        function toArabicDigits(str) {
+            if (str === null || str === undefined) return '';
+            const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+            return str.toString().replace(/[0-9]/g, function (w) {
+                return arabicDigits[+w];
+            });
+        }
+
+        // Safe Markdown Parser for Coach Live Responses
+        function parseMarkdownToHTML(text) {
+            if (!text) return "";
+            let html = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt bridge;");
+            
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brandPink font-bold">$1</strong>');
+            html = html.replace(/\n/g, '<br>');
+            return html;
+        }
+
+        window.onload = function() {
+            loadStateFromLocalStorage();
+            registerServiceWorker(); // Initialize PWA capability
+            initializeFastingTimer();
+            initializeRefeedingTimer();
+            initializeBackgroundReminderEngine(); // Fire background notifications engine
+            updateWaterUI();
+            updateSuppCheckboxes();
+            updateSuppRatio();
+            generateDaysSlider();
+            loadDayDetails(1); 
+            updateDynamicWeightMetrics();
+            renderBadgesOnLoad();
+            drawWeightChart();
+            renderGreetingText();
+            applyWidgetVisibility();
+            syncCustomizerCheckboxes();
+            triggerInitialWelcomePopup();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        };
+
+        // PWA Service Worker Registration
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => {
+                    // Service worker successfully active
+                })
+                .catch(err => {
+                    // Suppressed quiet fail as per strict instructions
+                });
+            }
+        }
+
+        // PWA Notifications Engine Controller
+        function togglePhoneNotifications() {
+            const toggle = document.getElementById('toggle-phone-notifications');
+            if (toggle.checked) {
+                if (!("Notification" in window)) {
+                    showToast("هذا الجهاز أو المتصفح لا يدعم نظام إشعارات الويب فسيولوجياً.");
+                    toggle.checked = false;
+                    return;
+                }
+
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        appState.phoneNotificationsEnabled = true;
+                        saveStateToLocalStorage();
+                        sendLocalNotification(
+                            "مفاصل فولاذية تحت المراقبة! 🦴",
+                            "تم تفعيل الإشعارات الفسيولوجية بنجاح. هنفكركِ بالمية والمكملات وأوقات الاستشفاء طوال الرحلة مع حلويات بوسي!"
+                        );
+                        showToast("تم تفعيل إشعارات الهاتف الذكية بنجاح! ❤️");
+                    } else {
+                        appState.phoneNotificationsEnabled = false;
+                        saveStateToLocalStorage();
+                        showToast("تم رفض الإذن. يرجى تفعيل إشعارات المتصفح للمنصة يدوياً من إعدادات الهاتف.");
+                        toggle.checked = false;
+                    }
+                });
+            } else {
+                appState.phoneNotificationsEnabled = false;
+                saveStateToLocalStorage();
+                showToast("تم إيقاف إشعارات الهاتف التذكيرية.");
+            }
+        }
+
+        function sendLocalNotification(title, body) {
+            if (!appState.phoneNotificationsEnabled) return;
+            if (Notification.permission === "granted") {
+                const options = {
+                    body: body,
+                    icon: "https://cdn-icons-png.flaticon.com/512/3068/3068323.png",
+                    vibrate: [200, 100, 200],
+                    dir: "rtl"
+                };
+                
+                // If service worker registration is active, push notification through it (better background compatibility)
+                if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.ready.then(reg => {
+                        reg.showNotification(title, options);
+                    });
+                } else {
+                    new Notification(title, options);
+                }
+            }
+        }
+
+        // Background Scheduler for Water, Supplements, and Fasting Milestones (Every 5 minutes checks)
+        function initializeBackgroundReminderEngine() {
+            if (backgroundReminderInterval) clearInterval(backgroundReminderInterval);
+            
+            const checkReminders = () => {
+                if (!appState.phoneNotificationsEnabled) return;
+                
+                const now = new Date();
+                const curHour = now.getHours();
+                const curDateStr = now.toDateString();
+
+                // 1. Water Reminder (Every 2 hours between 9:00 AM and 11:00 PM if water intake is below target)
+                if (curHour >= 9 && curHour <= 23) {
+                    const lastWaterRem = appState.lastNotificationLog['water'] || 0;
+                    const timeSinceLastWater = Date.now() - lastWaterRem;
+                    
+                    if (timeSinceLastWater >= 2 * 3600 * 1000 && appState.loggedWaterMl < targetWaterMl) {
+                        sendLocalNotification(
+                            "رشفة ماء فسيولوجية! 💧",
+                            "يا بطلة، مفاصل ركبتيكِ محتاجة مية حالياً لتنظيف الكلى من اليوريك أسيد الزائد. اشربي كوب مية فسيولوجي بملح الهيمالايا فوراً!"
+                        );
+                        appState.lastNotificationLog['water'] = Date.now();
+                        saveStateToLocalStorage();
+                    }
+                }
+
+                // 2. Supplements Reminders (Triggered at specific times of day once)
+                // سترونج كالسيوم د٣ (11:00 AM)
+                if (curHour === 11 && appState.lastNotificationLog['calcium_morning'] !== curDateStr && !appState.supplements.calcium) {
+                    sendLocalNotification(
+                        "ميعاد حماية العظام! 🦴",
+                        "ميعاد تناول سترونج كالسيوم سترات مع فيتامين د٣ لترميم الغضاريف وتأمين مصفوفة العظام تحت ضغط وزن البداية."
+                    );
+                    appState.lastNotificationLog['calcium_morning'] = curDateStr;
+                    saveStateToLocalStorage();
+                }
+
+                // مغنيسيوم جليسينات (9:00 PM)
+                if (curHour === 21 && appState.lastNotificationLog['magnesium_night'] !== curDateStr && !appState.supplements.magnesium) {
+                    sendLocalNotification(
+                        "ميعاد استرخاء الساقين! 💤",
+                        "ميعاد تناول المغنيسيوم جليسينات لتهدئة عضلات السمانة ومنع أي تقلصات عضلية مزعجة بالليل أثناء الكيتوزية."
+                    );
+                    appState.lastNotificationLog['magnesium_night'] = curDateStr;
+                    saveStateToLocalStorage();
+                }
+
+                // 3. Fasting Stage Completion Milestones
+                if (appState.fastActive && appState.fastStartTime) {
+                    const elapsedHrs = Math.floor((Date.now() - appState.fastStartTime.getTime()) / 3600000);
+                    const milestones = [12, 24, 48, 72, 192];
+                    
+                    milestones.forEach(m => {
+                        const mKey = `fasting_${m}_reached`;
+                        if (elapsedHrs >= m && !appState.lastNotificationLog[mKey]) {
+                            sendLocalNotification(
+                                "انتصار خلوي جديد! 🏆",
+                                `لقد أتممتِ ${toArabicDigits(m)} ساعة صيام كيتوني متواصل! خلايا ومفاصل حلويات بوسي تجدد بروتيناتها بالكامل الآن!`
+                            );
+                            appState.lastNotificationLog[mKey] = true;
+                            saveStateToLocalStorage();
+                        }
+                    });
+                }
+            };
+
+            // Run check immediately on load, then every 60 seconds
+            checkReminders();
+            backgroundReminderInterval = setInterval(checkReminders, 60000);
+        }
+
+        // Welcome Popup
+        function triggerInitialWelcomePopup() {
+            setTimeout(() => {
+                showToast("أهلاً بكِ في منصتكِ الفسيولوجية المطورة مع حلويات بوسي! مفاصلكِ وعظامكِ أولويتنا الكبرى ❤️.");
+            }, 1000);
+        }
+
+        // Greeting based on time of day
+        function renderGreetingText() {
+            const hr = new Date().getHours();
+            let greeting = "صباح الخير يا فنانة..";
+            if (hr >= 12 && hr < 17) greeting = "أهلاً بكِ يا بطلة..";
+            else if (hr >= 17) greeting = "مساء الخير والنشاط الحركي..";
+            
+            document.getElementById('greeting-text').innerText = `${greeting} أهلاً بكِ في واجهة تتبع بروتوكول حلويات بوسي المطور`;
+        }
+
+        // State Handlers
+        function loadStateFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    
+                    if (parsed.fastStartTime && parsed.fastActive) {
+                        const dateVal = new Date(parsed.fastStartTime);
+                        if (!isNaN(dateVal.getTime()) && dateVal.getTime() > 0) {
+                            parsed.fastStartTime = dateVal;
+                        } else {
+                            parsed.fastStartTime = new Date(Date.now() - (192 * 3600 + 14 * 60 + 2) * 1000);
+                        }
+                    } else if (parsed.fastActive) {
+                        parsed.fastStartTime = new Date(Date.now() - (192 * 3600 + 14 * 60 + 2) * 1000);
+                    } else {
+                        parsed.fastStartTime = null;
+                    }
+
+                    if (parsed.refeedingStartTime && parsed.refeedingActive) {
+                        const dateVal = new Date(parsed.refeedingStartTime);
+                        if (!isNaN(dateVal.getTime()) && dateVal.getTime() > 0) {
+                            parsed.refeedingStartTime = dateVal;
+                        } else {
+                            parsed.refeedingActive = false;
+                        }
+                    }
+
+                    appState = {
+                        ...appState,
+                        ...parsed,
+                        supplements: { ...appState.supplements, ...parsed.supplements },
+                        claimedBadges: { ...appState.claimedBadges, ...parsed.claimedBadges },
+                        widgetVisibility: { ...appState.widgetVisibility, ...parsed.widgetVisibility },
+                        lastNotificationLog: parsed.lastNotificationLog || {}
+                    };
+                } else {
+                    appState.fastStartTime = new Date(Date.now() - (192 * 3600 + 14 * 60 + 2) * 1000);
+                    appState.fastActive = true;
+                }
+                
+                if (appState.journalText) {
+                    const journalElement = document.getElementById('journal-input');
+                    if (journalElement) journalElement.value = appState.journalText;
+                }
+
+                // Sync toggle button visually on load
+                const toggleNotif = document.getElementById('toggle-phone-notifications');
+                if (toggleNotif) {
+                    toggleNotif.checked = !!appState.phoneNotificationsEnabled;
+                }
+            } catch (e) {
+                console.error("Error loading local storage state:", e);
+                appState.fastStartTime = new Date(Date.now() - (192 * 3600 + 14 * 60 + 2) * 1000);
+                appState.fastActive = true;
+            }
+        }
+
+        function saveStateToLocalStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+            } catch (e) {
+                console.error("Error saving state to local storage:", e);
+            }
+        }
+
+        // Apply visibility state for dynamic widgets
+        function applyWidgetVisibility() {
+            for (const [widgetId, isVisible] of Object.entries(appState.widgetVisibility)) {
+                const element = document.getElementById(widgetId);
+                if (element) {
+                    if (isVisible) {
+                        element.classList.remove('hidden');
+                    } else {
+                        element.classList.add('hidden');
+                    }
+                }
+            }
+        }
+
+        function syncCustomizerCheckboxes() {
+            const mappings = {
+                'widget-water': 'toggle-water-widget',
+                'widget-weight': 'toggle-weight-widget',
+                'widget-supp': 'toggle-supp-widget',
+                'widget-coach': 'toggle-coach-widget',
+                'widget-journal': 'toggle-journal-widget'
+            };
+            for (const [widgetId, checkboxId] of Object.entries(mappings)) {
+                const cb = document.getElementById(checkboxId);
+                if (cb) {
+                    cb.checked = !!appState.widgetVisibility[widgetId];
+                }
+            }
+        }
+
+        // Tab Swapping Controller
+        function switchToTab(tabId) {
+            document.querySelectorAll('.app-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+            document.getElementById(`view-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.remove('text-brandPink');
+                btn.classList.add('text-brandBlack/80');
+            });
+            const activeBtn = document.getElementById(`nav-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('text-brandPink');
+                activeBtn.classList.remove('text-brandBlack/80');
+            }
+
+            if (tabId === 'fasting') {
+                simulateFastingHours(document.getElementById('fasting-simulator').value);
+            } else if (tabId === 'profile') {
+                drawWeightChart();
+            }
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Fasting Timer Logic
+        function initializeFastingTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            if (appState.fastActive && appState.fastStartTime) {
+                document.getElementById('fasting-active-card').classList.remove('hidden');
+                document.getElementById('new-fasting-form').classList.add('hidden');
+                document.getElementById('fasting-dates-box').classList.remove('hidden');
+                document.getElementById('fasting-controls-box').classList.remove('hidden');
+
+                const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+                const startStr = toArabicDigits(appState.fastStartTime.toLocaleDateString('ar-EG', options));
+                const targetEnd = new Date(appState.fastStartTime.getTime() + (appState.fastTargetHours * 3600 * 1000));
+                const endStr = toArabicDigits(targetEnd.toLocaleDateString('ar-EG', options));
+
+                document.getElementById('fasting-start-date-text').innerText = `بدأ الصيام: ${startStr}`;
+                document.getElementById('start-date-disp').innerText = startStr;
+                document.getElementById('end-date-disp').innerText = endStr;
+
+                const initialElapsedMs = Date.now() - appState.fastStartTime.getTime();
+                updateRingAndTimerUI(Math.max(0, Math.floor(initialElapsedMs / 1000)));
+                checkBadgesDynamicProgress(Math.max(0, Math.floor(initialElapsedMs / 1000)));
+
+                timerInterval = setInterval(() => {
+                    if (isTimerRunning && appState.fastStartTime) {
+                        const elapsedMs = Date.now() - appState.fastStartTime.getTime();
+                        const elapsedSeconds = Math.floor(elapsedMs / 1000);
+                        updateRingAndTimerUI(Math.max(0, elapsedSeconds));
+                        checkBadgesDynamicProgress(Math.max(0, elapsedSeconds));
+                    }
+                }, 1000);
+            } else {
+                document.getElementById('fasting-active-card').classList.add('hidden');
+                document.getElementById('new-fasting-form').classList.remove('hidden');
+                document.getElementById('fasting-dates-box').classList.add('hidden');
+                document.getElementById('fasting-controls-box').classList.add('hidden');
+                
+                document.getElementById('ring-timer').innerText = "٠٠:٠٠:٠٠";
+                document.getElementById('today-large-timer').innerText = "٠٠:٠٠:٠٠";
+                
+                const now = new Date();
+                document.getElementById('new-fast-date').value = now.toISOString().substring(0, 10);
+                document.getElementById('new-fast-time').value = now.toTimeString().substring(0, 5);
+
+                checkBadgesDynamicProgress(appState.longestFast * 3600);
+            }
+        }
+
+        function startNewFastingSession() {
+            const dateVal = document.getElementById('new-fast-date').value;
+            const timeVal = document.getElementById('new-fast-time').value;
+            const presetVal = document.getElementById('new-fast-type').value;
+
+            if (!dateVal || !timeVal) {
+                showToast("يرجى اختيار تاريخ ووقت البدء بشكل صحيح.");
+                return;
+            }
+
+            const startTime = new Date(`${dateVal}T${timeVal}`);
+            if (isNaN(startTime.getTime())) {
+                showToast("تنسيق التاريخ والوقت غير صالح.");
+                return;
+            }
+
+            if (startTime > new Date()) {
+                showToast("لا يمكن بدء الصيام من تاريخ مستقبلي.");
+                return;
+            }
+
+            appState.fastActive = true;
+            appState.fastStartTime = startTime;
+            
+            if (presetVal === 'water-keto') {
+                appState.fastTargetHours = 240;
+                appState.fastType = 'water-keto';
+            } else if (presetVal === 'intermittent-20') {
+                appState.fastTargetHours = 20;
+                appState.fastType = 'intermittent-20';
+            } else {
+                appState.fastTargetHours = 16;
+                appState.fastType = 'intermittent-16';
+            }
+
+            // Clear any old background fasting milestone logs for clean slate
+            for (let k in appState.lastNotificationLog) {
+                if (k.startsWith('fasting_')) {
+                    delete appState.lastNotificationLog[k];
+                }
+            }
+
+            saveStateToLocalStorage();
+            initializeFastingTimer();
+            showToast("تم تنشيط بروتوكول الصيام الفسيولوجي المطور بنجاح!");
+        }
+
+        function toggleFastingTimer() {
+            isTimerRunning = !isTimerRunning;
+            const btn = document.getElementById('btn-timer-control');
+            if (isTimerRunning) {
+                btn.innerText = "إيقاف العداد مؤقتاً";
+                btn.className = "flex-1 py-3 rounded-xl bg-brandPink/5 hover:bg-brandPink/10 text-brandPink font-bold text-xs transition border pink-border-subtle focus:outline-none";
+                showToast("تم استئناف تتبع ساعات صيامكِ بنجاح.");
+            } else {
+                btn.innerText = "استئناف العداد";
+                btn.className = "flex-1 py-3 rounded-xl bg-brandPink/10 hover:bg-brandPink/20 text-brandPink font-bold text-xs transition border border-brandPink focus:outline-none";
+                showToast("تم تعليق تتبع العداد مؤقتاً.");
+            }
+        }
+
+        function updateRingAndTimerUI(elapsedSeconds) {
+            if (elapsedSeconds < 0) elapsedSeconds = 0;
+            const hrs = Math.floor(elapsedSeconds / 3600);
+            const mins = Math.floor((elapsedSeconds % 3600) / 60);
+            const secs = elapsedSeconds % 60;
+
+            const formatNum = (num) => num.toString().padStart(2, '0');
+            const timeStr = toArabicDigits(`${formatNum(hrs)}:${formatNum(mins)}:${formatNum(secs)}`);
+            
+            document.getElementById('ring-timer').innerText = timeStr;
+            document.getElementById('today-large-timer').innerText = timeStr;
+
+            const totalTargetSeconds = appState.fastTargetHours * 3600;
+            const progressPercent = totalTargetSeconds > 0 ? Math.min(1.0, elapsedSeconds / totalTargetSeconds) : 0;
+            const totalDash = 691; 
+            const offset = totalDash - (progressPercent * totalDash);
+            
+            const ring = document.getElementById('fasting-progress-ring');
+            if (ring) {
+                ring.setAttribute('stroke-dashoffset', offset);
+            }
+
+            const percentageVal = Math.round(progressPercent * 100);
+            document.getElementById('fasting-excess-percent').innerText = toArabicDigits(`${percentageVal}%`);
+
+            const stageText = document.getElementById('ring-stage');
+            if (hrs < 12) {
+                stageText.innerText = "مرحلة تراجع الأنسولين الأولية";
+            } else if (hrs < 24) {
+                stageText.innerText = "مرحلة تكسير الجليكوجين الكبدي";
+            } else if (hrs < 72) {
+                stageText.innerText = "مرحلة الالتهام الذاتي وتنظيف المفاصل";
+            } else {
+                stageText.innerText = "تجديد الخلايا الجذعية وبناء الأربطة";
+            }
+        }
+
+        // Fasting Simulator Range
+        function simulateFastingHours(hoursVal) {
+            document.getElementById('simulated-hours-text').innerText = toArabicDigits(`${hoursVal} ساعة صيام`);
+            updateStageCardsDynamic(parseInt(hoursVal));
+        }
+
+        function updateStageCardsDynamic(hours) {
+            const stages = [
+                { id: 1, trigger: 18, card: 'stage-card-1', icon: 'stage-icon-1', title: 'stage-title-1', defaultTitle: 'نفاذ السكر والاعتياد الكيتوني (ساعة ١٢ - ١٨)' },
+                { id: 2, trigger: 48, card: 'stage-card-2', icon: 'stage-icon-2', title: 'stage-title-2', defaultTitle: 'انطلاق الالتهام الذاتي الفعال (Autophagy) (ساعة ٢٤ - ٤٨)' },
+                { id: 3, trigger: 120, card: 'stage-card-3', icon: 'stage-icon-3', title: 'stage-title-3', defaultTitle: 'تجديد خلايا الدم البيضاء وبناء المفاصل (ساعة ٧٢ - ١٢٠)' },
+                { id: 4, trigger: 240, card: 'stage-card-4', icon: 'stage-icon-4', title: 'stage-title-4', defaultTitle: 'الاستشفاء الهيكلي والصفاء الذهني الكامل (ساعة ١٨٠ - ٢٤٠)' }
+            ];
+
+            const checkIconSvg = `<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
+            const lockIconSvg = `<svg class="w-4 h-4 text-brandPink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+
+            stages.forEach(st => {
+                const card = document.getElementById(st.card);
+                const icon = document.getElementById(st.icon);
+                const title = document.getElementById(st.title);
+
+                if (hours >= st.trigger) {
+                    card.className = "flex items-start gap-4 p-4 rounded-xl border border-brandGold bg-white transition-all duration-300 pink-shadow-sm";
+                    icon.className = "p-2 rounded-full mt-1 bg-brandGold text-white shadow-sm";
+                    icon.innerHTML = checkIconSvg;
+                    title.className = "text-xs font-bold text-brandBlack flex items-center gap-1.5";
+                    title.innerHTML = `${st.defaultTitle} <span class="badge-unlocked text-[9px] bg-brandPink/10 text-brandPink border pink-border-subtle px-2 py-0.5 rounded font-bold">مكتمل</span>`;
+                } else {
+                    card.className = "flex items-start gap-4 p-4 rounded-xl border pink-border-subtle bg-white opacity-60 transition-all duration-300";
+                    icon.className = "p-2 rounded-full mt-1 bg-brandPink/5 text-brandPink border pink-border-subtle";
+                    icon.innerHTML = lockIconSvg;
+                    title.className = "text-xs font-bold text-brandBlack/70 flex items-center gap-1.5";
+                    title.innerHTML = st.defaultTitle;
+                }
+            });
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Water Logging Controller
+        function addWaterMl(amount) {
+            appState.loggedWaterMl += amount;
+            if (appState.loggedWaterMl > targetWaterMl * 1.5) {
+                showToast("أداء رائع ومبهر! ولكن يرجى رشف المياه ببطء على مدار اليوم لعدم إجهاد الكليتين فسيولوجياً.");
+            }
+            saveStateToLocalStorage();
+            updateWaterUI();
+            
+            if (appState.fastActive && appState.fastStartTime) {
+                const elapsedSeconds = Math.floor((Date.now() - appState.fastStartTime.getTime()) / 1000);
+                checkBadgesDynamicProgress(Math.max(0, elapsedSeconds));
+            } else {
+                checkBadgesDynamicProgress(appState.longestFast * 3600);
+            }
+        }
+
+        function updateWaterUI() {
+            const formattedLogged = toArabicDigits(appState.loggedWaterMl);
+            const formattedTarget = toArabicDigits(targetWaterMl);
+            const widgetRatioText = `${formattedLogged} / ${formattedTarget} مل`;
+            document.getElementById('water-widget-ratio').innerText = widgetRatioText;
+
+            const percent = Math.min(100, (appState.loggedWaterMl / targetWaterMl) * 100);
+            
+            const waterBar = document.getElementById('water-widget-bar');
+            if (waterBar) waterBar.style.width = `${percent}%`;
+            
+            const wave = document.querySelector('.wave-layer');
+            if (wave) {
+                wave.style.height = `${percent}%`;
+            }
+        }
+
+        // Supplements Counter
+        function updateSuppCheckboxes() {
+            document.getElementById('chk-calcium').checked = !!appState.supplements.calcium;
+            document.getElementById('chk-vitD3').checked = !!appState.supplements.vitD3;
+            document.getElementById('chk-himalaya').checked = !!appState.supplements.himalaya;
+            document.getElementById('chk-magnesium').checked = !!appState.supplements.magnesium;
+        }
+
+        function updateSuppRatio() {
+            appState.supplements.calcium = document.getElementById('chk-calcium').checked;
+            appState.supplements.vitD3 = document.getElementById('chk-vitD3').checked;
+            appState.supplements.himalaya = document.getElementById('chk-himalaya').checked;
+            appState.supplements.magnesium = document.getElementById('chk-magnesium').checked;
+
+            saveStateToLocalStorage();
+
+            const checkedCount = Object.values(appState.supplements).filter(Boolean).length;
+            document.getElementById('supplements-ratio').innerText = toArabicDigits(`${checkedCount} / ٤ تم تناولها`);
+            
+            if (checkedCount === 4) {
+                showToast("رائع جداً! تم تأمين وتغطية الاحتياج المعدني لحماية عظامكِ ومفاصلكِ لليوم.");
+            }
+
+            if (appState.fastActive && appState.fastStartTime) {
+                const elapsedSeconds = Math.floor((Date.now() - appState.fastStartTime.getTime()) / 1000);
+                checkBadgesDynamicProgress(Math.max(0, elapsedSeconds));
+            } else {
+                checkBadgesDynamicProgress(appState.longestFast * 3600);
+            }
+        }
+
+        // Weight Logging Modal Actions
+        function openLogWeightModal() {
+            document.getElementById('weight-log-input').value = appState.currentWeight;
+            
+            const todayStr = toArabicDigits(new Date().toLocaleDateString('ar-EG', { day: 'numeric', month: 'short' }));
+            document.getElementById('weight-date-input').value = todayStr;
+            
+            document.getElementById('modal-log-weight').classList.remove('hidden');
+        }
+
+        function closeLogWeightModal() {
+            document.getElementById('modal-log-weight').classList.add('hidden');
+        }
+
+        function saveNewWeightLog() {
+            const weightVal = parseFloat(document.getElementById('weight-log-input').value);
+            const dateVal = document.getElementById('weight-date-input').value.trim();
+
+            if (isNaN(weightVal) || weightVal <= 0 || !dateVal) {
+                showToast("يرجى إدخال قيم وزن وتاريخ صحيحة.");
+                return;
+            }
+
+            appState.currentWeight = weightVal;
+            
+            const existingIdx = appState.weightHistory.findIndex(w => w.date === dateVal);
+            if (existingIdx !== -1) {
+                appState.weightHistory[existingIdx].weight = weightVal;
+            } else {
+                appState.weightHistory.push({ date: dateVal, weight: weightVal });
+                if (appState.weightHistory.length > 8) {
+                    appState.weightHistory.shift();
+                }
+            }
+
+            saveStateToLocalStorage();
+            updateDynamicWeightMetrics();
+            closeLogWeightModal();
+            showToast("تم تحديث الوزن بنجاح وإعادة رسم منحنى الـ SVG فسيولوجياً!");
+        }
+
+        // Weight Controller and Joint Relief Calculator
+        function updateDynamicWeightMetrics() {
+            const currentWeight = appState.currentWeight;
+            document.getElementById('current-weight-display').innerText = toArabicDigits(`${currentWeight.toFixed(1)} كجم`);
+
+            document.getElementById('initial-weight-text').innerText = toArabicDigits(`${appState.initialWeight.toFixed(1)} كجم`);
+            document.getElementById('target-weight-text').innerText = toArabicDigits(`٩٠.٠ كجم`);
+
+            const lostWeight = appState.initialWeight - currentWeight;
+            const jointRelief = lostWeight * 4.0; 
+
+            const diffSpan = document.getElementById('chart-weight-diff');
+            if (lostWeight > 0) {
+                diffSpan.innerText = toArabicDigits(`-${lostWeight.toFixed(1)} كجم`);
+            } else {
+                diffSpan.innerText = toArabicDigits(`+${Math.abs(lostWeight).toFixed(1)} كجم`);
+            }
+
+            if (lostWeight < 0) {
+                document.getElementById('joint-relief-today').innerText = "٠.٠ كجم";
+                document.getElementById('lost-weight-val').innerText = "٠.٠ كجم";
+                document.getElementById('relieved-load-val').innerText = "٠.٠ كجم";
+                document.getElementById('joint-relief-desc').innerHTML = `
+                    زيادة الوزن الحالية تعني زيادة الضغط الميكانيكي على ركبتيكِ وعظامكِ. 
+                    <strong class="text-brandPink font-bold">لا داعي للقلق؛</strong> هذا طبيعي ويحدث جراء احتباس السوائل وتعبئة الصوديوم المؤقتة داخل الخلايا الدهنية المنكمشة. واصلي بروتوكول حلويات بوسي بثقة وسوف يزول هذا الاحتباس سريعاً!
+                `;
+            } else {
+                document.getElementById('joint-relief-today').innerText = toArabicDigits(`${jointRelief.toFixed(1)} كجم`);
+                document.getElementById('lost-weight-val').innerText = toArabicDigits(`${lostWeight.toFixed(1)} كجم`);
+                document.getElementById('relieved-load-val').innerText = toArabicDigits(`${jointRelief.toFixed(1)} كجم`);
+                document.getElementById('joint-relief-desc').innerHTML = `
+                    بانخفاض ميزانكِ بمقدار <strong class="text-brandPink font-bold" id="lost-weight-val">${toArabicDigits(lostWeight.toFixed(1))} كجم</strong> عن البداية، قمتِ بإزالة أكثر من <strong class="text-brandPink font-bold" id="relieved-load-val">${toArabicDigits(jointRelief.toFixed(1))} كجم</strong> من الضغط والجهد الحركي عن غضاريف ركبتيكِ وفقرات الظهر السفلى.
+                `;
+            }
+
+            const targetWeightLoss = 30.0;
+            const progressPct = Math.min(100, Math.max(0, (lostWeight / targetWeightLoss) * 100));
+            document.getElementById('target-progress-bar').style.width = `${progressPct}%`;
+            document.getElementById('target-progress-text').innerText = toArabicDigits(`${progressPct.toFixed(1)}%`);
+
+            const heightSq = 1.63 * 1.63; 
+            const bmi = currentWeight / heightSq; 
+            const indexText = document.getElementById('fat-index-text');
+            if (bmi >= 40) {
+                indexText.innerText = toArabicDigits(`${bmi.toFixed(2)} (سمنة مفرطة من الدرجة الثالثة)`);
+                indexText.className = "font-bold text-brandPink";
+            } else if (bmi >= 35) {
+                indexText.innerText = toArabicDigits(`${bmi.toFixed(2)} (سمنة مفرطة من الدرجة الثانية)`);
+                indexText.className = "font-bold text-brandPink/90";
+            } else {
+                indexText.innerText = toArabicDigits(`${bmi.toFixed(2)} (سمنة من الدرجة الأولى)`);
+                indexText.className = "font-bold text-brandGold";
+            }
+
+            drawWeightChart();
+        }
+
+        // SVG WEIGHT CHART GENERATION
+        function drawWeightChart() {
+            const svg = document.getElementById('weight-svg-chart');
+            const pathElement = document.getElementById('chart-slope-path');
+            const pointsGroup = document.getElementById('chart-points-group');
+            
+            if (!svg || !pathElement || !pointsGroup) return;
+
+            const history = appState.weightHistory || [];
+            if (history.length === 0) {
+                pathElement.setAttribute('d', '');
+                pointsGroup.innerHTML = '';
+                return;
+            }
+
+            const width = 500;
+            const height = 150;
+            const paddingX = 40;
+            const paddingY = 20;
+
+            const weights = history.map(h => h.weight);
+            const rawMin = Math.min(...weights, 90);
+            const rawMax = Math.max(...weights, 120);
+            
+            const minWeight = Math.max(0, rawMin - 5);
+            const maxWeight = rawMax + 5;
+
+            const getX = (index) => {
+                if (history.length <= 1) return width / 2;
+                return paddingX + (index * (width - 2 * paddingX) / (history.length - 1));
+            };
+
+            const getY = (weight) => {
+                const range = maxWeight - minWeight;
+                if (range === 0) return height / 2;
+                const ratio = (weight - minWeight) / range;
+                return height - paddingY - (ratio * (height - 2 * paddingY));
+            };
+
+            let d = "";
+            let pointsHtml = "";
+
+            history.forEach((point, idx) => {
+                const x = getX(idx);
+                const y = getY(point.weight);
+
+                if (idx === 0) {
+                    d = `M ${x} ${y}`;
+                } else {
+                    d += ` L ${x} ${y}`;
+                }
+
+                pointsHtml += `
+                    <circle cx="${x}" cy="${y}" r="5" fill="#D4AF37" stroke="#FFFFFF" stroke-width="2" />
+                    <text x="${x}" y="${y - 12}" text-anchor="middle" fill="#111111" class="text-[8px] font-bold">${toArabicDigits(point.weight.toFixed(1))}</text>
+                    <text x="${x}" y="${height - 4}" text-anchor="middle" fill="#111111" class="text-[8px] font-semibold">${toArabicDigits(point.date)}</text>
+                `;
+            });
+
+            pathElement.setAttribute('d', d);
+            pointsGroup.innerHTML = pointsHtml;
+        }
+
+        // Active Note Journal Controller
+        function saveJournalEntry(text) {
+            appState.journalText = text;
+            saveStateToLocalStorage();
+        }
+
+        function clearJournal() {
+            appState.journalText = "";
+            const journalElement = document.getElementById('journal-input');
+            if (journalElement) journalElement.value = "";
+            saveStateToLocalStorage();
+            showToast("تم تفريغ مذكرات المفكرة اليومية بنجاح.");
+        }
+
+        // Backup and Restore Data Controls
+        function exportAppData() {
+            try {
+                const dataStr = btoa(unescape(encodeURIComponent(JSON.stringify(appState))));
+                const tempInput = document.createElement("input");
+                tempInput.value = dataStr;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                showToast("تم تصدير ونسخ الرمز الاحتياطي لبياناتكِ الحركية بنجاح للذاكرة 📋! يرجى حفظه في مكان آمن.");
+            } catch (e) {
+                console.error(e);
+                showToast("فشل تصدير البيانات تلقائياً.");
+            }
+        }
+
+        function triggerImportModal() {
+            document.getElementById('import-data-area').value = "";
+            document.getElementById('modal-import-data').classList.remove('hidden');
+        }
+
+        function closeImportModal() {
+            document.getElementById('modal-import-data').classList.add('hidden');
+        }
+
+        function applyImportData() {
+            const rawVal = document.getElementById('import-data-area').value.trim();
+            if (!rawVal) {
+                showToast("يرجى لصق الرمز الاحتياطي أولاً.");
+                return;
+            }
+
+            try {
+                const decoded = JSON.parse(decodeURIComponent(escape(atob(rawVal))));
+                if (decoded && typeof decoded === 'object') {
+                    appState = decoded;
+                    saveStateToLocalStorage();
+                    closeImportModal();
+                    
+                    loadStateFromLocalStorage();
+                    initializeFastingTimer();
+                    updateWaterUI();
+                    updateSuppCheckboxes();
+                    updateSuppRatio();
+                    updateDynamicWeightMetrics();
+                    renderBadgesOnLoad();
+                    drawWeightChart();
+                    showToast("تم استيراد كافة السجلات والمقاسات بنجاح! مفاصلكِ وعظامكِ في أمان تام ✨.");
+                } else {
+                    showToast("الرمز المدخل غير صالح أو تالف.");
+                }
+            } catch (e) {
+                console.error(e);
+                showToast("فشل فك شفرة الرمز، يرجى التأكد من نسخه بالكامل.");
+            }
+        }
+
+        // Article Finder / Filter Database
+        function filterArticles(query) {
+            const normalizedQuery = query.trim().toLowerCase();
+            const cards = document.querySelectorAll('.article-card');
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const textContent = card.textContent.toLowerCase();
+
+                if (textContent.includes(normalizedQuery) || keywords.includes(normalizedQuery)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Live Chat Control
+        function handleCoachKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendCustomCoachMessage();
+            }
+        }
+
+        function sendCustomCoachMessage() {
+            const input = document.getElementById('coach-text-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            input.value = "";
+            executeLiveCoachCall(message);
+        }
+
+        function askCoachChat(scenarioKey, userMessage) {
+            if (coachDatabase[scenarioKey]) {
+                const container = document.getElementById('chat-messages-container');
+                const typingIndicator = document.getElementById('chat-typing-indicator');
+
+                const userBubble = document.createElement('div');
+                userBubble.className = "bg-brandPink text-white p-3 rounded-2xl rounded-tl-none text-xs font-semibold leading-relaxed max-w-[85%] self-end pink-shadow-sm border border-brandPink/30";
+                userBubble.innerText = userMessage;
+                container.appendChild(userBubble);
+                container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+
+                typingIndicator.classList.remove('hidden');
+
+                setTimeout(() => {
+                    typingIndicator.classList.add('hidden');
+                    const coachBubble = document.createElement('div');
+                    coachBubble.className = "bg-white p-3 rounded-2xl rounded-tr-none text-xs text-brandBlack font-semibold leading-relaxed max-w-[85%] self-start pink-shadow-sm border pink-border-subtle relative group";
+                    
+                    const responseId = 'local-res-' + Date.now();
+                    coachBubble.innerHTML = `
+                        <div id="${responseId}">${coachDatabase[scenarioKey]}</div>
+                        <div class="mt-2 flex justify-start">
+                            <button onclick="readAloudText('${responseId}')" class="p-1 rounded-lg bg-brandPink/5 hover:bg-brandPink/10 text-brandPink transition focus:outline-none flex items-center gap-1 text-[9px] font-bold">
+                                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> استمع للتوجيه الصوتي
+                            </button>
+                        </div>
+                    `;
+                    container.appendChild(coachBubble);
+                    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }, 1000);
+            } else {
+                executeLiveCoachCall(userMessage);
+            }
+        }
+
+        // Gemini API Interaction with Exponential Backoff
+        async function executeLiveCoachCall(promptText) {
+            const container = document.getElementById('chat-messages-container');
+            const typingIndicator = document.getElementById('chat-typing-indicator');
+
+            const userBubble = document.createElement('div');
+            userBubble.className = "bg-brandPink text-white p-3 rounded-2xl rounded-tl-none text-xs font-semibold leading-relaxed max-w-[85%] self-end pink-shadow-sm border border-brandPink/30";
+            userBubble.innerText = promptText;
+            container.appendChild(userBubble);
+            container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+
+            typingIndicator.classList.remove('hidden');
+
+            const systemInstruction = `
+            أنت مستشار فسيولوجي طبي خبير، تقدم الدعم لـ "بوسي" (مؤسسة حلويات بوسي) في رحلتها الفسيولوجية.
+            العنوان والمكان: "الكفاح - مركز الفرافرة - الوادي الجديد".
+            الرحلة: صيام طويل 40 يوم، بدأت من وزن 120 كجم وتستهدف 90 كجم لحماية غضاريف الركبتين من الضغط الميكانيكي ومقاومة حمض البوليك (اليوريك أسيد).
+            الشخصية: خبير، دافئ، واثق، يتحدث مع العميل باحترام ونبل.
+            اللغة: تحدث بلهجة مصرية عامية راقية للغاية ومهذبة، خالية من المبالغات أو الكلمات الشعبية السوقية.
+            التركيز الطبي: شرب 4.2 لتر ماء، ملح الهيمالايا، سترات الكالسيوم (تمتص بدون حمض معدة)، مغنيسيوم جليسينات (يهدئ السمانة بدون إسهال)، فيتامين د٣.
+            اجعل الإجابات قصيرة ومباشرة في حدود 3-5 أسطر كحد أقصى لسهولة القراءة على الموبايل.
+            `;
+
+            let success = false;
+            let resultText = "";
+            let backoffDelays = [1000, 2000, 4000, 8000, 16000];
+
+            for (let retry = 0; retry < 5; retry++) {
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: promptText }] }],
+                            systemInstruction: { parts: [{ text: systemInstruction }] }
+                        })
+                    });
+                    if (response.ok) {
+                        const resJson = await response.json();
+                        resultText = resJson.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (resultText) {
+                            success = true;
+                            break;
+                        }
+                    }
+                } catch (e) {
+                    // Suppressed fail log
+                }
+                await new Promise(r => setTimeout(r, backoffDelays[retry]));
+            }
+
+            typingIndicator.classList.add('hidden');
+
+            const coachBubble = document.createElement('div');
+            coachBubble.className = "bg-white p-3 rounded-2xl rounded-tr-none text-xs text-brandBlack font-semibold leading-relaxed max-w-[85%] self-start pink-shadow-sm border pink-border-subtle flex flex-col gap-2 relative";
+
+            if (success && resultText) {
+                const responseId = 'ai-res-' + Date.now();
+                const formattedText = parseMarkdownToHTML(resultText);
+                coachBubble.innerHTML = `
+                    <div id="${responseId}">${formattedText}</div>
+                    <div class="mt-1 flex justify-start">
+                        <button onclick="readAloudText('${responseId}')" class="p-1 rounded-lg bg-brandPink/5 hover:bg-brandPink/10 text-brandPink transition focus:outline-none flex items-center gap-1 text-[9px] font-bold">
+                            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> استمع للتوجيه الصوتي
+                        </button>
+                    </div>
+                `;
+            } else {
+                coachBubble.innerHTML = `
+                    <div>عذراً يا بطلة، تعذر الاتصال بالمستشار فسيولوجياً للحظات. يرجى تكرار المحاولة، أو الاعتماد على رصدك الذاتي ومستلزمات المياه الكافية لليوم.</div>
+                `;
+            }
+
+            container.appendChild(coachBubble);
+            container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        // Text To Speech API Integration (Gemini 2.5 TTS)
+        async function readAloudText(elementId) {
+            const rawText = document.getElementById(elementId).innerText;
+            const cleanText = rawText.replace(/<\/?[^>]+(>|$)/g, ""); 
+
+            showToast("جاري تحضير الملف الصوتي الفسيولوجي...");
+
+            const payload = {
+                contents: [{ parts: [{ text: `قل بصوت هادئ ومؤثر ومحبب: ${cleanText}` }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: {
+                                voiceName: "Kore" 
+                            }
+                        }
+                    }
+                },
+                model: "gemini-2.5-flash-preview-tts"
+            };
+
+            let success = false;
+            let audioBase64 = "";
+            let backoffDelays = [1000, 2000, 4000, 8000, 16000];
+
+            for (let retry = 0; retry < 5; retry++) {
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        const resJson = await response.json();
+                        audioBase64 = resJson.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+                        if (audioBase64) {
+                            success = true;
+                            break;
+                        }
+                    }
+                } catch (e) {
+                    // Suppressed quiet catch
+                }
+                await new Promise(r => setTimeout(r, backoffDelays[retry]));
+            }
+
+            if (success && audioBase64) {
+                try {
+                    const wavBlob = pcmToWav(audioBase64, 24000);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                } catch (e) {
+                    console.error("Audio playback error:", e);
+                    showToast("حدث خطأ أثناء تشغيل الملف الصوتي على جهازكِ.");
+                }
+            } else {
+                showToast("تعذر إنتاج التوجيه الصوتي مؤقتاً، يرجى مراجعة اتصال الإنترنت.");
+            }
+        }
+
+        // Convert raw PCM16 output from Gemini TTS to valid playable WAV format
+        function pcmToWav(pcmBase64, sampleRate = 24000) {
+            const binaryString = atob(pcmBase64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            const wavBuffer = new ArrayBuffer(44 + len);
+            const wavView = new DataView(wavBuffer);
+            
+            const writeString = (view, offset, string) => {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            };
+
+            writeString(wavView, 0, 'RIFF');
+            wavView.setUint32(4, 36 + len, true);
+            writeString(wavView, 8, 'WAVE');
+            writeString(wavView, 12, 'fmt ');
+            wavView.setUint32(16, 16, true);
+            wavView.setUint16(20, 1, true); 
+            wavView.setUint16(22, 1, true); 
+            wavView.setUint32(24, sampleRate, true);
+            wavView.setUint32(28, sampleRate * 2, true); 
+            wavView.setUint16(32, 2, true); 
+            wavView.setUint16(34, 16, true); 
+            writeString(wavView, 36, 'data');
+            wavView.setUint32(40, len, true);
+            
+            for (let i = 0; i < len; i++) {
+                wavView.setUint8(44 + i, bytes[i]);
+            }
+            
+            return new Blob([wavBuffer], { type: 'audio/wav' });
+        }
+
+        // Widget Customizer Panels
+        function openWidgetCustomizer() {
+            document.getElementById('widget-customizer').classList.remove('hidden');
+        }
+
+        function closeWidgetCustomizer() {
+            document.getElementById('widget-customizer').classList.add('hidden');
+        }
+
+        function toggleWidget(widgetId) {
+            const widget = document.getElementById(widgetId);
+            if (!widget) return;
+            
+            const isHidden = widget.classList.contains('hidden');
+            if (isHidden) {
+                widget.classList.remove('hidden');
+                appState.widgetVisibility[widgetId] = true;
+            } else {
+                widget.classList.add('hidden');
+                appState.widgetVisibility[widgetId] = false;
+            }
+            saveStateToLocalStorage();
+            syncCustomizerCheckboxes();
+        }
+
+        // Edit Fasting Modal Actions
+        function openEditFastingModal() {
+            if (!appState.fastActive || !appState.fastStartTime) {
+                showToast("لا يوجد صيام نشط لتعديله حالياً. يمكنكِ تفعيل ميقات جديد بالأسفل.");
+                return;
+            }
+            
+            const start = appState.fastStartTime;
+            const year = start.getFullYear();
+            const month = String(start.getMonth() + 1).padStart(2, '0');
+            const date = String(start.getDate()).padStart(2, '0');
+            const hrs = String(start.getHours()).padStart(2, '0');
+            const mins = String(start.getMinutes()).padStart(2, '0');
+
+            document.getElementById('edit-fast-date').value = `${year}-${month}-${date}`;
+            document.getElementById('edit-fast-time').value = `${hrs}:${mins}`;
+            document.getElementById('edit-fast-target').value = appState.fastTargetHours;
+
+            document.getElementById('modal-edit-fasting').classList.remove('hidden');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function closeEditFastingModal() {
+            document.getElementById('modal-edit-fasting').classList.add('hidden');
+        }
+
+        function saveFastingEdits() {
+            const dateVal = document.getElementById('edit-fast-date').value;
+            const timeVal = document.getElementById('edit-fast-time').value;
+            const targetVal = parseInt(document.getElementById('edit-fast-target').value);
+
+            if (!dateVal || !timeVal || isNaN(targetVal) || targetVal <= 0) {
+                showToast("يرجى مراجعة المدخلات والتأكد من صحتها.");
+                return;
+            }
+
+            const parsedDate = new Date(`${dateVal}T${timeVal}`);
+            if (isNaN(parsedDate.getTime())) {
+                showToast("تنسيق التاريخ والوقت غير صالح.");
+                return;
+            }
+
+            if (parsedDate > new Date()) {
+                showToast("لا يمكن تعيين وقت بدء الصيام في تاريخ مستقبلي.");
+                return;
+            }
+
+            appState.fastStartTime = parsedDate;
+            appState.fastTargetHours = targetVal;
+            saveStateToLocalStorage();
+            
+            initializeFastingTimer();
+            closeEditFastingModal();
+            showToast("تم تعديل ميقات ومستهدف الصيام وإعادة الضبط بنجاح!");
+        }
+
+        // Reset Fasting Actions
+        function triggerResetConfirmModal() {
+            if (!appState.fastActive) {
+                showToast("العداد غير نشط بالفعل لتصفيره.");
+                return;
+            }
+            document.getElementById('modal-reset-confirm').classList.remove('hidden');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function closeResetConfirmModal() {
+            document.getElementById('modal-reset-confirm').classList.add('hidden');
+        }
+
+        function confirmResetFasting() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            appState.fastActive = false;
+            appState.fastStartTime = null;
+            saveStateToLocalStorage();
+            
+            initializeFastingTimer();
+            closeResetConfirmModal();
+            showToast("تم تصفير العداد وإعادة التهيئة بنجاح.");
+        }
+
+        // End Fast Modal Handlers
+        function triggerEndFastModal() {
+            document.getElementById('modal-still-fasting').classList.remove('hidden');
+        }
+
+        // Safe Refeeding Companion Tracker Activation
+        function activateRefeedingCompanion() {
+            appState.refeedingActive = true;
+            appState.refeedingStartTime = new Date();
+            saveStateToLocalStorage();
+            initializeRefeedingTimer();
+        }
+
+        function initializeRefeedingTimer() {
+            if (refeedingInterval) clearInterval(refeedingInterval);
+
+            if (appState.refeedingActive && appState.refeedingStartTime) {
+                document.getElementById('refeeding-active-widget').classList.remove('hidden');
+
+                const updateRefeedingUI = () => {
+                    const elapsedMs = Date.now() - appState.refeedingStartTime.getTime();
+                    const threeHoursMs = 3 * 3600 * 1000;
+                    const remainingMs = threeHoursMs - elapsedMs;
+
+                    if (remainingMs <= 0) {
+                        clearInterval(refeedingInterval);
+                        terminateRefeedingProtocol();
+                        showToast("مبارك يا بطلة! لقد أتممتِ بروتوكول كسر الصيام التدريجي لليوم بأمان طبي تام وجهاز هضمي سليم.");
+                    } else {
+                        const elapsedHours = elapsedMs / 3600000;
+                        const phase1 = document.getElementById('refeed-phase-1');
+                        const phase2 = document.getElementById('refeed-phase-2');
+                        const phase3 = document.getElementById('refeed-phase-3');
+
+                        if (elapsedHours < 1) {
+                            if (phase1) phase1.className = "p-3 rounded-xl border border-brandGold bg-white text-right space-y-1";
+                            if (phase2) phase2.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                            if (phase3) phase3.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                        } else if (elapsedHours < 2) {
+                            if (phase1) phase1.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                            if (phase2) phase2.className = "p-3 rounded-xl border border-brandGold bg-white text-right space-y-1";
+                            if (phase3) phase3.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                        } else {
+                            if (phase1) phase1.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                            if (phase2) phase2.className = "p-3 rounded-xl border border-brandPink/20 bg-white text-right space-y-1 opacity-50";
+                            if (phase3) phase3.className = "p-3 rounded-xl border border-brandGold bg-white text-right space-y-1";
+                        }
+
+                        const remSecsTotal = Math.floor(remainingMs / 1000);
+                        const hrs = Math.floor(remSecsTotal / 3600);
+                        const mins = Math.floor((remSecsTotal % 3600) / 60);
+                        const secs = remSecsTotal % 60;
+                        
+                        const formatNum = (num) => num.toString().padStart(2, '0');
+                        document.getElementById('refeeding-timer-text').innerText = toArabicDigits(`${formatNum(hrs)}:${formatNum(mins)}:${formatNum(secs)} متبقي`);
+                    }
+                };
+
+                updateRefeedingUI();
+                refeedingInterval = setInterval(updateRefeedingUI, 1000);
+            } else {
+                document.getElementById('refeeding-active-widget').classList.add('hidden');
+            }
+        }
+
+        function terminateRefeedingProtocol() {
+            if (refeedingInterval) clearInterval(refeedingInterval);
+            appState.refeedingActive = false;
+            appState.refeedingStartTime = null;
+            saveStateToLocalStorage();
+            document.getElementById('refeeding-active-widget').classList.add('hidden');
+        }
+
+        function confirmFasting(shouldEnd) {
+            document.getElementById('modal-still-fasting').classList.add('hidden');
+            if (shouldEnd) {
+                if (appState.fastActive && appState.fastStartTime) {
+                    const elapsedMs = Date.now() - appState.fastStartTime.getTime();
+                    const elapsedHours = Math.floor(elapsedMs / 3600000);
+                    
+                    appState.totalFastingHours += elapsedHours;
+                    if (elapsedHours > appState.longestFast) {
+                        appState.longestFast = elapsedHours;
+                    }
+                    appState.totalCommittedDays += 1;
+                    appState.streakDays += 1;
+                    appState.fastActive = false;
+                    appState.fastStartTime = null;
+
+                    saveStateToLocalStorage();
+                    initializeFastingTimer();
+                    activateRefeedingCompanion();
+
+                    document.getElementById('profile-total-hours').innerText = toArabicDigits(appState.totalFastingHours);
+                    document.getElementById('profile-longest-fast').innerText = toArabicDigits(appState.longestFast);
+                    document.getElementById('profile-committed-days').innerText = toArabicDigits(appState.totalCommittedDays);
+                    document.getElementById('profile-streak-days').innerText = toArabicDigits(appState.streakDays);
+
+                    showToast("إنجاز رائع! تم إنهاء الصيام وتفعيل 'بروتوكول الكسر الآمن' لـ ٣ ساعات لحماية جهازكِ الهضمي ومفاصلكِ.");
+                    switchToTab('today');
+                }
+            } else {
+                showToast("رائع جداً! استمري بوعي كامل وثقة في طريقكِ نحو الأهداف الصحية والمفاصل الفولاذية.");
+            }
+        }
+
+        // Achievements Dynamic Checker
+        function checkBadgesDynamicProgress(elapsedSeconds) {
+            if (isNaN(elapsedSeconds) || elapsedSeconds < 0) elapsedSeconds = 0;
+            const currentFastingHrs = Math.floor(elapsedSeconds / 3600);
+            
+            // 1. 192 Hours Badge
+            const badge192Percent = Math.min(100, (currentFastingHrs / 192) * 100);
+            document.getElementById('badge-progress-192').style.width = `${badge192Percent}%`;
+            
+            const badgeStatus192 = document.getElementById('badge-status-text-192');
+            const claimBtn192 = document.getElementById('badge-claim-btn-192');
+            
+            if (currentFastingHrs >= 192) {
+                badgeStatus192.innerText = "جاهز للتحرير والفتح!";
+                badgeStatus192.className = "text-[9px] text-brandGold font-bold block";
+                if (!appState.claimedBadges.badge192) {
+                    claimBtn192.classList.remove('hidden');
+                }
+            } else {
+                badgeStatus192.innerText = toArabicDigits(`قيد التقدم والتتبع (${currentFastingHrs} / ١٩٢ ساعة)`);
+                badgeStatus192.className = "text-[9px] text-brandBlack/70 font-bold block";
+                claimBtn192.classList.add('hidden');
+            }
+
+            // 2. Steel Bones Badge
+            const checkedSupps = Object.values(appState.supplements).filter(Boolean).length;
+            const bonesPercent = (checkedSupps / 4) * 100;
+            document.getElementById('badge-progress-bones').style.width = `${bonesPercent}%`;
+            
+            const badgeStatusBones = document.getElementById('badge-status-text-bones');
+            const claimBtnBones = document.getElementById('badge-claim-btn-bones');
+            
+            if (checkedSupps === 4) {
+                badgeStatusBones.innerText = "جاهز للتحرير والفتح!";
+                badgeStatusBones.className = "text-[9px] text-brandGold font-bold block";
+                if (!appState.claimedBadges.badgeBones) {
+                    claimBtnBones.classList.remove('hidden');
+                }
+            } else {
+                badgeStatusBones.innerText = toArabicDigits(`تناول المكملات لحماية ركبتكِ وجهازكِ الحركي (${checkedSupps} / ٤)`);
+                badgeStatusBones.className = "text-[9px] text-brandBlack/70 font-bold block";
+                claimBtnBones.classList.add('hidden');
+            }
+
+            // 3. Water Hydration Badge
+            const waterPercent = Math.min(100, (appState.loggedWaterMl / targetWaterMl) * 100);
+            document.getElementById('badge-progress-water').style.width = `${waterPercent}%`;
+            
+            const badgeStatusWater = document.getElementById('badge-status-text-water');
+            const claimBtnWater = document.getElementById('badge-claim-btn-water');
+            
+            if (appState.loggedWaterMl >= targetWaterMl) {
+                badgeStatusWater.innerText = "جاهز للتحرير والفتح!";
+                badgeStatusWater.className = "text-[9px] text-brandGold font-bold block";
+                if (!appState.claimedBadges.badgeWater) {
+                    claimBtnWater.classList.remove('hidden');
+                }
+            } else {
+                badgeStatusWater.innerText = toArabicDigits(`تطهير الخلايا وحماية الكليتين (${appState.loggedWaterMl} / ٤٢٠٠ مل)`);
+                badgeStatusWater.className = "text-[9px] text-brandBlack/70 font-bold block";
+                claimBtnWater.classList.add('hidden');
+            }
+        }
+
+        // Visual Synchronization of claimed badges on page load
+        function renderBadgesOnLoad() {
+            document.getElementById('profile-total-hours').innerText = toArabicDigits(appState.totalFastingHours);
+            document.getElementById('profile-longest-fast').innerText = toArabicDigits(appState.longestFast);
+            document.getElementById('profile-committed-days').innerText = toArabicDigits(appState.totalCommittedDays);
+            document.getElementById('profile-streak-days').innerText = toArabicDigits(appState.streakDays);
+
+            const badgesConfig = [
+                { key: 'badge192', id: 'badge-card-192', iconId: 'badge-icon-192' },
+                { key: 'badgeBones', id: 'badge-card-bones', iconId: 'badge-icon-bones' },
+                { key: 'badgeWater', id: 'badge-card-water', iconId: 'badge-icon-water' }
+            ];
+
+            badgesConfig.forEach(badge => {
+                if (appState.claimedBadges[badge.key]) {
+                    const card = document.getElementById(badge.id);
+                    if (card) {
+                        card.className = "p-4 rounded-xl border-2 border-brandGold bg-gradient-to-r from-brandPink/5 to-white relative overflow-hidden flex flex-col justify-between transition-all pink-shadow";
+                    }
+                    const icon = document.getElementById(badge.iconId);
+                    if (icon) {
+                        icon.className = "w-4 h-4 text-brandGold";
+                    }
+                }
+            });
+        }
+
+        // Earning badge triggers celebration modal
+        function claimBadge(badgeKey) {
+            let text = "";
+            let cardId = "";
+            let iconId = "";
+            
+            if (badgeKey === '192') {
+                text = "لقد فزتِ بلقب 'وسام الـ ١٩٢ ساعة الصارم'! صمدتِ وحققتِ تحولاً كيميائياً فسيولوجياً خارقاً للعادة في مفاصلكِ وخلاياكِ الحيوية! مبروك لـ حلويات بوسي!";
+                cardId = "badge-card-192";
+                iconId = "badge-icon-192";
+                appState.claimedBadges.badge192 = true;
+                document.getElementById('badge-claim-btn-192').classList.add('hidden');
+            } else if (badgeKey === 'bones') {
+                text = "لقد فتحتِ 'وسام العظام الفولاذية'! بفضل التزامكِ المذهل بإمداد هيكلكِ العظمي بسترات الكالسيوم المخلبية عالية الامتصاص، فيتامين د٣، والمغنيسيوم جليسينات لتهدئة الأوتار والمفاصل!";
+                cardId = "badge-card-bones";
+                iconId = "badge-icon-bones";
+                appState.claimedBadges.badgeBones = true;
+                document.getElementById('badge-claim-btn-bones').classList.add('hidden');
+            } else if (badgeKey === 'water') {
+                text = "لقد فزتِ بلقب 'وسام نقاء الكليتين والخلايا'! بفضل غسيل وتطهير الكليتين المستمر بالماء الفسيولوجي المطور لتصريف حمض البوليك الزائد كيميائياً وحماية الغضاريف والمفاصل.";
+                cardId = "badge-card-water";
+                iconId = "badge-icon-water";
+                appState.claimedBadges.badgeWater = true;
+                document.getElementById('badge-claim-btn-water').classList.add('hidden');
+            }
+
+            saveStateToLocalStorage();
+
+            document.getElementById('celebration-badge-text').innerText = text;
+            document.getElementById('modal-celebration').classList.remove('hidden');
+
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.className = "p-4 rounded-xl border-2 border-brandGold bg-gradient-to-r from-brandPink/5 to-white relative overflow-hidden flex flex-col justify-between scale-105 transition-all pink-shadow";
+            }
+            const icon = document.getElementById(iconId);
+            if (icon) {
+                icon.className = "w-4 h-4 text-brandGold";
+            }
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function closeCelebrationModal() {
+            document.getElementById('modal-celebration').classList.add('hidden');
+        }
+
+        // Slider Day Protocol Loader
+        function generateDaysSlider() {
+            const slider = document.getElementById('days-slider');
+            if (!slider) return;
+            slider.innerHTML = "";
+
+            const keyMilestones = [
+                { day: 1, label: "اليوم الأول" },
+                { day: 2, label: "اليوم الثاني" },
+                { day: 3, label: "اليوم الثالث" },
+                { day: 4, label: "يوم ٤ - ١٠" },
+                { day: 11, label: "يوم ١١ - ٢٠" },
+                { day: 21, label: "يوم ٢١ - ٣٠" },
+                { day: 31, label: "يوم ٣١ - ٤٠" }
+            ];
+
+            keyMilestones.forEach(m => {
+                const btn = document.createElement('button');
+                btn.id = `day-btn-${m.day}`;
+                btn.onclick = () => loadDayDetails(m.day);
+                btn.className = "px-4 py-2.5 rounded-xl text-[11px] font-bold transition duration-200 shrink-0 border bg-white text-brandBlack/80 border-brandPink/20 hover:border-brandPink focus:outline-none";
+                btn.innerText = m.label;
+                slider.appendChild(btn);
+            });
+        }
+
+        function loadDayDetails(dayKey) {
+            const data = timelineData[dayKey];
+            if (!data) return;
+
+            document.querySelectorAll('[id^="day-btn-"]').forEach(btn => {
+                btn.className = "px-4 py-2.5 rounded-xl text-[11px] font-bold transition duration-200 shrink-0 border bg-white text-brandBlack/80 border-brandPink/20 hover:border-brandPink focus:outline-none";
+            });
+            const activeBtn = document.getElementById(`day-btn-${dayKey}`);
+            if (activeBtn) {
+                activeBtn.className = "px-4 py-2.5 rounded-xl text-[11px] font-bold transition duration-200 shrink-0 border border-brandPink bg-brandPink text-white pink-shadow-sm focus:outline-none";
+            }
+
+            document.getElementById('detail-day-title').innerText = data.title;
+            document.getElementById('detail-day-hours').innerText = data.hours;
+            document.getElementById('detail-day-joint-advice').innerText = data.advice;
+
+            const stepsContainer = document.getElementById('detail-day-timeline');
+            stepsContainer.innerHTML = "";
+
+            data.steps.forEach(step => {
+                const stepElement = document.createElement('div');
+                stepElement.className = "flex items-start gap-4 p-3.5 rounded-xl hover:bg-brandPink/5 transition border pink-border-subtle bg-white pink-shadow-sm";
+                stepElement.innerHTML = `
+                    <span class="px-3 py-1 rounded-lg bg-brandPink text-[10px] font-bold text-white shrink-0 mt-0.5">${toArabicDigits(step.time)}</span>
+                    <div>
+                        <p class="text-xs text-brandBlack leading-relaxed font-bold">${step.desc}</p>
+                    </div>
+                `;
+                stepsContainer.appendChild(stepElement);
+            });
+
+            document.getElementById('day-details-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Custom Premium Toast Notifications
+        function showToast(message) {
+            document.querySelectorAll('.app-toast-notif').forEach(t => t.remove());
+
+            const toast = document.createElement('div');
+            toast.className = 'app-toast-notif fixed bottom-24 left-5 right-5 sm:left-auto sm:right-5 bg-white border-2 border-brandPink p-4 rounded-xl pink-shadow z-50 text-xs font-bold text-brandBlack transition-all duration-300 max-w-sm';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
+
